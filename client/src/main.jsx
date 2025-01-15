@@ -62,7 +62,7 @@ createRoot(document.getElementById('root')).render(
       <CssBaseline />
       <GlobalStyles 
         styles={{
-          body: {backgroundColor: theme.palette.backgroundCream.main},
+          body: {backgroundColor: theme.palette.backgroundCream.main, margin: '0'},
         }}
       />
       <BrowserRouter>

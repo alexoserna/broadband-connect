@@ -109,6 +109,7 @@ const Header = () => {
               fontWeight: 700,
               letterSpacing: '.3rem',
               color: 'inherit',
+              '&:hover':{color:theme.palette.accent.main},
               textDecoration: 'none',
               flexGrow: 1
             }}
@@ -124,7 +125,7 @@ const Header = () => {
                 component={Link}
                 to={`/${page.toLowerCase()}`}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: theme.palette.textColor.main, display: 'block' }}
+                sx={{ my: 2, color: theme.palette.textColor.main, '&:hover':{color:theme.palette.accent.main}, display: 'block' }}
               >
                 {page}
               </Button>
