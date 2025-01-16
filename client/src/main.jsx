@@ -11,6 +11,9 @@ import { GlobalStyles } from '@mui/material';
 const theme = createTheme({
 
   palette:{
+    text: {
+      primary: '#2C1F0E',
+    },
     primary: {
       main: '#C0392B',
     },
