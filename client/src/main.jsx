@@ -4,11 +4,11 @@ import CssBaseline from '@mui/material/CssBaseline';
 import './index.css';
 import App from './App.jsx';
 import { BrowserRouter } from 'react-router-dom';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { ThemeProvider, createTheme, responsiveFontSizes } from '@mui/material/styles';
 import { GlobalStyles } from '@mui/material';
 
 // Create a custom theme
-const theme = createTheme({
+let theme = createTheme({
 
   palette:{
     text: {
@@ -24,16 +24,19 @@ const theme = createTheme({
       main: '#D4A017',
     },
     // background colors
+    background: {
+      default: '#F4ECE4',
+      card: '#F1E3DA',
+    },
     backgroundCream: {
       main: '#F4ECE4',
       card: '#F1E3DA',
     },
-    textColor:{
-      main: '#2C1F0E',
-    },
   },
 
 });
+
+theme = responsiveFontSizes(theme);
 
 // Create dark mode theme to be implemented later
 const themeDark = createTheme({
@@ -63,11 +66,6 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <ThemeProvider theme = {theme}>
       <CssBaseline />
-      <GlobalStyles 
-        styles={{
-          body: {backgroundColor: theme.palette.backgroundCream.main, margin: '0'},
-        }}
-      />
       <BrowserRouter>
         <App />
       </BrowserRouter>

@@ -125,7 +125,7 @@ const Header = () => {
                 component={Link}
                 to={`/${page.toLowerCase()}`}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: theme.palette.textColor.main, '&:hover':{color:theme.palette.accent.main}, display: 'block' }}
+                sx={{ my: 2, color: theme.palette.text.primary, '&:hover':{color:theme.palette.accent.main}, display: 'block' }}
               >
                 {page}
               </Button>

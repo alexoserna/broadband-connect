@@ -1,7 +1,11 @@
-import { Button, Container, Typography, Paper, grid2Classes } from '@mui/material';
+import { Button, Container, Typography, Paper, grid2Classes, Tooltip, IconButton, Avatar, Divider } from '@mui/material';
 import Grid from '@mui/material/Grid2';
 import Box from '@mui/material/Box';
+
 import heroImage from '../assets/images/ricardo-gomez-angel-MagdWoazARo-unsplash.png';
+import ImgCard from '../components/ImgCard';
+import Testimonial from '../components/Testimonial';
+import CTA from '../components/CTA';
 
 const Home = () => {
   return <>
@@ -12,16 +16,17 @@ const Home = () => {
       flexGrow: '1',
     }}>
       {/* Main Grid */}
-      <Grid container spacing={8}>
+      <Grid container spacing={0}>
 
         {/* Header Section - Hero */}
         <Grid size={12}>
           <Box
             sx={{
               minHeight: '85vh',
+              display: 'flex',
+              alignItems: 'center',
               py: '112px',
               px: '64px',
-              alignItems: 'center',
               gap: '80px',
             }}
           >
@@ -29,24 +34,27 @@ const Home = () => {
             <Grid container spacing={8}>
 
               {/* Item 1 in Hero */}
-              <Grid size={{ xs: 12, md: 6 }}>
-                <Typography variant="h1">Connecting you to the future of networking</Typography>
-                <Typography variant="h4">Hands on, accredited trianing, giving you the experience and skills you need to succeed in telecommunications!</Typography>
-                <Button variant='contained'>Apply Now</Button>
-                <Button variant='contained'>Learn More</Button>
+              <Grid size={{ xs: 12, md: 6 }} sx={{ display: 'flex', alignItems: 'center', textAlign: 'left' }}>
+                <Box>
+                  <Typography variant="h1">Connecting you to the future of networking</Typography>
+                  <Typography variant="h4" sx={{ py: '32px' }}>Hands on, accredited trianing, giving you the experience and skills you need to succeed in telecommunications!</Typography>
+                  <Box>
+                    <Button variant='contained' sx={{ marginRight: '20px', padding: '12px 36px' }}>Apply Now</Button>
+                    <Button variant='contained' sx={{ padding: '12px 36px' }} >Learn More</Button>
+                  </Box>
+                </Box>
               </Grid>
 
               {/* Item 2 in Hero */}
-              <Grid size={{ xs: 12, md: 6 }}>
+              <Grid size={{ xs: 12, md: 6 }}  >
                 <Container
                   sx={{
                     backgroundImage: `url(${heroImage})`,
                     backgroundSize: 'cover',          // Ensure the image covers the container
-                    backgroundPosition: 'center',     // Center the image
-                    height: '100%',                    // Make the container take the full height of its parent
-                    width: '100%',                     // Ensure the container spans full width
-                    maxWidth: '100%',
-                    minHeight: '348px'                   // Prevent any width constraints
+                    backgroundPosition: 'center',     // Center the image 
+                    width: '80%',                     // Ensure the container spans full width
+                    minHeight: '348px',                // Prevent any width constraints
+                    aspectRatio: '1/1',
                   }}
                 />
               </Grid>
@@ -56,72 +64,70 @@ const Home = () => {
         </Grid>
 
         {/* Key Points Section */}
-        <Grid xs={12}>
+        <Grid size={12}>
 
-          <Typography variant="h4" gutterBottom>
-            Key Points
-          </Typography>
+          <Container sx={{ padding: '64px 112px' }}>
+            <Box sx={{ maxWidth: '768px', mx: 'auto' }}>
+              <Typography variant='p'>Excellence</Typography>
+              <Typography variant="h2" gutterBottom>
+                Why choose Broadband Connect for Training?
+              </Typography>
+              <Typography variant='p' gutterBottom>
+                Our training programs are designed to empower you with practical skills and knowledge.
+                We focus on hands-on experiences that prepare you for real-world challenges.
+              </Typography>
+            </Box>
 
-          {/* Container for Key Points Section */}
-          <Grid container spacing={2}>
-            {/* Key Point 1 */}
-            <Grid xs={12} md={4}>
+            {/* Container for Key Points Section */}
+            <Grid container spacing={2} sx={{ py: '80px' }}>
+              {/* Key Point 1 */}
+              <Grid size={{ xs: 12, md: 4 }}>
 
-              <Typography variant="h6">Key Point 1</Typography>
-              <Typography variant="body1">Description of the key point.</Typography>
+                <ImgCard
+                  image="https://aimmontessoriteachertraining.org/images/img_QuFAxvBbyrgVLYuNMJcJbi/hands.jpg"
+                  title="Hands-On Training for Real-World Skills"
+                  description="Experience learning that translates directly to the workplace."
+                />
 
+              </Grid>
+              {/* Key Point 2 */}
+              <Grid size={{ xs: 12, md: 4 }}>
+
+                <ImgCard
+                  image="https://aimmontessoriteachertraining.org/images/img_QuFAxvBbyrgVLYuNMJcJbi/hands.jpg"
+                  title="Certified Instructors with Industry Experience"
+                  description="Learn from experts who bring real-world insights."
+                />
+              </Grid>
+
+              {/* Key Point 3 */}
+              <Grid size={{ xs: 12, md: 4 }}>
+
+                <ImgCard
+                  image="https://aimmontessoriteachertraining.org/images/img_QuFAxvBbyrgVLYuNMJcJbi/hands.jpg"
+                  title="Flexible Learning Options to Fit Your Schedule"
+                  description="Choose from various formats to suit your needs."
+                />
+              </Grid>
             </Grid>
-            {/* Key Point 2 */}
-            <Grid xs={12} md={4}>
 
-              <Typography variant="h6">Key Point 2</Typography>
-              <Typography variant="body1">Description of the key point.</Typography>
+            <Box>
+              <Button variant='contained' sx={{ marginRight: '20px', padding: '12px 36px' }}>Apply Now</Button>
+              <Button variant='contained' sx={{ padding: '12px 36px' }} >Learn More</Button>
+            </Box>
 
-            </Grid>
-            {/* Key Point 3 */}
-            <Grid xs={12} md={4}>
-
-              <Typography variant="h6">Key Point 3</Typography>
-              <Typography variant="body1">Description of the key point.</Typography>
-
-            </Grid>
-          </Grid>
+          </Container>
 
         </Grid>
 
         {/* Testimonials Section */}
-        <Grid xs={12}>
-
-          <Typography variant="h4" gutterBottom>
-            Testimonials
-          </Typography>
-          <Grid container spacing={2}>
-            {/* Testimonial 1 */}
-            <Grid xs={12} md={6}>
-
-              <Typography variant="h6">Testimonial 1</Typography>
-              <Typography variant="body1">This is a testimonial text.</Typography>
-
-            </Grid>
-            {/* Testimonial 2 */}
-            <Grid xs={12} md={6}>
-
-              <Typography variant="h6">Testimonial 2</Typography>
-              <Typography variant="body1">This is another testimonial text.</Typography>
-
-            </Grid>
-          </Grid>
-
+        <Grid size={12} sx={{ py: '112px' }}>
+          <Testimonial />
         </Grid>
 
         {/* CTA Section */}
-        <Grid xs={12}>
-
-          <Typography variant="h4" gutterBottom>
-            Start Today
-          </Typography>
-          <Button variant="contained" color="primary">Sign Up</Button>
-
+        <Grid size={12}>
+          <CTA/>
         </Grid>
 
       </Grid>
