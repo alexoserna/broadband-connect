@@ -1,0 +1,92 @@
+[
+    {
+        "title": "Cert III in Telecommunications Technology",
+        "description": "The Certificate III in Telecommunications Technology is designed for telecommunications technology operators involved in installation, fault-finding, and testing of telecommunications systems and equipment.",
+        "category": "Telecommunications",
+        "cost": {
+            "total": 7680,
+            "perModule": 480
+        },
+        "duration": {
+            "months": 24
+        },
+        "qualificationDescription": "Prepares individuals to assess installation needs, perform installations, and troubleshoot networks across various telecommunications environments.",
+        "careerOutcomes": [
+            "Customer premises cabling networks",
+            "Digital reception and optical networks",
+            "Radio communications",
+            "Telecommunications networking and rigging"
+        ],
+        "structure": {
+            "totalUnits": 16,
+            "coreUnits": [
+                {
+                    "code": "ICTTEN202",
+                    "title": "Use hand and power tools"
+                },
+                {
+                    "code": "ICTTEN208",
+                    "title": "Use electrical skills when working with telecommunications networks"
+                },
+                {
+                    "code": "ICTTEN315",
+                    "title": "Determine and apply technologies within a telecommunications system"
+                },
+                {
+                    "code": "ICTTEN317",
+                    "title": "Locate, identify and rectify telecommunications network faults"
+                },
+                {
+                    "code": "ICTWHS204",
+                    "title": "Follow work health and safety and environmental policy and procedures"
+                },
+                {
+                    "code": "ICTWOR308",
+                    "title": "Provide customer service to telecommunications customers"
+                }
+            ],
+            "electiveUnits": [
+                {
+                    "code": "ICTCBL247",
+                    "title": "Install, maintain and modify customer premises communications cabling: ACMA Open Rule",
+                    "group": "Group C: Telecommunications Cabling"
+                },
+                {
+                    "code": "ICTCBL322",
+                    "title": "Install, test and terminate optical fibre cable on customer premises",
+                    "group": "Group F: Optical Networks"
+                },
+                {
+                    "code": "ICTCBL301",
+                    "title": "Install, terminate and certify structured cabling installation",
+                    "group": "Group C: Telecommunications Cabling"
+                }
+            ]
+        },
+        "learningOutcomes": [
+            "Install and maintain telecommunications cabling.",
+            "Troubleshoot and resolve network faults.",
+            "Ensure workplace and environmental safety.",
+            "Provide customer service and technical support."
+        ],
+        "deliveryMode": "Hands-on training at the workplace or training facility.",
+        "assessmentMethods": [
+            "Practical tasks",
+            "Projects",
+            "Hands-on exercises"
+        ],
+        "skillTree": [
+            {
+                "skillName": "Open Cabler Registration",
+                "price": 650,
+                "description": "Essential training for working safely and effectively with customer premises cabling installations.",
+                "outcomes": [
+                    {
+                        "code": "ICTCBL246",
+                        "title": "Install, maintain and modify customer premises communications cabling: ACMA Restricted Rule"
+                    }
+                ]
+            }
+        ]
+    }
+]

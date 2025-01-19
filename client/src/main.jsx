@@ -6,18 +6,26 @@ import App from './App.jsx';
 import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider, createTheme, responsiveFontSizes } from '@mui/material/styles';
 import { GlobalStyles } from '@mui/material';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
+
+const client = new ApolloClient({
+  uri: 'http://localhost:3001/graphql', // Replace with your server's GraphQL endpoint
+  cache: new InMemoryCache(),          // Apollo's caching mechanism
+});
 
 // Create a custom theme
 let theme = createTheme({
 
-  palette:{
+  palette: {
     text: {
       primary: '#2C1F0E',
     },
     primary: {
       main: '#C0392B',
     },
-    secondary:{
+    secondary: {
       main: '#007B43',
     },
     accent: {
@@ -41,21 +49,21 @@ theme = responsiveFontSizes(theme);
 // Create dark mode theme to be implemented later
 const themeDark = createTheme({
 
-  palette:{
+  palette: {
     primary: {
       main: '#D44F40',
     },
-    secondary:{
+    secondary: {
       main: '#85FFC8',
     },
-    accent:{
-      main:'#E8B22C'
+    accent: {
+      main: '#E8B22C'
     },
     // background colors
     backgroundCream: {
       main: '#1A130A',
     },
-    textColor:{
+    textColor: {
       main: 'F2E5D4',
     },
   },
@@ -64,11 +72,13 @@ const themeDark = createTheme({
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <ThemeProvider theme = {theme}>
-      <CssBaseline />
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </ThemeProvider>
+    <ApolloProvider client={client}>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </ThemeProvider>
+    </ApolloProvider>
   </StrictMode>,
 )
