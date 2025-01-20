@@ -14,6 +14,7 @@ const CTA = () => {
                 maxWidth: '668px',
                 display: 'flex',
                 padding: '24px',
+                my: '112px',
                 flexDirection: 'column',
                 alignItems: 'center',
                 gap: '32px',

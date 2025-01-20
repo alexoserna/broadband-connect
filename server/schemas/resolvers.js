@@ -3,9 +3,24 @@ const { Course } = require('../models');
 // Create the functions that fulfill the queries defined in `typeDefs.js`
 const resolvers = {
   Query: {
-    courses: async () => {
+    getCourses: async () => {
       // Get and return all documents from the classes collection
-      return await Course.find({});
+      const courses = await Course.find({});
+      return courses;
+    },
+    getCourseById: async (_, { id }) => {
+      try {
+        const course = await Course.findById(id); // MongoDB will automatically handle the conversion
+        if (!course) throw new Error("Course not found");
+        if (!course.duration.months) {
+          course.duration.months = 0; // Default value
+        }
+        return course;
+      } catch (error) {
+        throw new Error(error.message);
+      }
+
+
     }
   }
 };

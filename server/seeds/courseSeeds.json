@@ -54,11 +54,21 @@
                 {
                     "code": "ICTCBL322",
                     "title": "Install, test and terminate optical fibre cable on customer premises",
-                    "group": "Group F: Optical Networks"
+                    "group": "Group C: Telecommunications Cabling"
                 },
                 {
                     "code": "ICTCBL301",
                     "title": "Install, terminate and certify structured cabling installation",
+                    "group": "Group C: Telecommunications Cabling"
+                },
+                {
+                    "code": "ICTCBL303",
+                    "title": "Install and terminate coaxial cabling",
+                    "group": "Group C: Telecommunications Cabling"
+                },
+                {
+                    "code": "ICTCBL333",
+                    "title": "Install aerial cable for communications applications",
                     "group": "Group C: Telecommunications Cabling"
                 }
             ]
@@ -88,5 +98,347 @@
                 ]
             }
         ]
-    }
+    },
+    {
+        "title": "Open Cabler Registration",
+        "description": "Essential training for working safely and effectively with customer premises cabling installations. Covering both ACMA Restricted and Open Rules, this course equips learners with practical skills and technical knowledge needed to comply with industry standards.",
+        "category": "Telecommunications",
+        "cost": {
+          "total": 650,
+          "perModule": null
+        },
+        "duration": {
+          "months": null,
+          "hours": null
+        },
+        "qualificationDescription": "Focuses on compliant and secure installation techniques for customer premises cabling.",
+        "careerOutcomes": [],
+        "structure": {
+          "totalUnits": 3,
+          "coreUnits": [
+            {
+              "code": "ICTWHS204",
+              "title": "Follow work health and safety and environmental policy and procedures"
+            },
+            {
+              "code": "ICTCBL246",
+              "title": "Install, maintain and modify customer premises communications cabling: ACMA Restricted Rule"
+            },
+            {
+              "code": "ICTCBL247",
+              "title": "Install, maintain and modify customer premises communications cabling: ACMA Open Rule"
+            }
+          ],
+          "electiveUnits": []
+        },
+        "learningOutcomes": [
+          "Terminate and connect cables across sockets within customer premises",
+          "Understand and apply the ACMA cabling licence requirements",
+          "Interpret and adhere to ACMA mandatory technical standards",
+          "Install backbone cabling and facility cabling to ensure connectivity throughout premises",
+          "Maintain, modify, and accurately update cabling records",
+          "Conduct pre-handover testing of Telephone Cabling Systems to verify installation quality"
+        ],
+        "deliveryMode": "Hands-on training conducted at the student’s workplace or training facility.",
+        "assessmentMethods": ["Practical tasks", "Real-world scenarios"],
+        "skillTree": []
+      },
+      {
+        "title": "Optical Fibre Cabling",
+        "description": "Immersive, practical training in optical fibre installation, testing, and maintenance for nbn™ Skill 33 & 9.",
+        "category": "Optical Fiber",
+        "cost": {
+          "total": 400,
+          "perModule": null
+        },
+        "duration": {
+          "months": null,
+          "hours": null
+        },
+        "qualificationDescription": "Equips learners to work confidently in optical telecommunications environments.",
+        "careerOutcomes": [],
+        "structure": {
+          "totalUnits": 2,
+          "coreUnits": [
+            {
+              "code": "ICTCBL322",
+              "title": "Install, test and terminate optical fibre cable on customer premises"
+            },
+            {
+              "code": "ICTTEN318",
+              "title": "Inspect, clean and handle optical fibre cable and connectors"
+            }
+          ],
+          "electiveUnits": []
+        },
+        "learningOutcomes": [
+          "Understanding optical fibre cable types",
+          "Key factors affecting light propagation",
+          "Assessing and optimizing optical fibre performance",
+          "Mastery of installation techniques",
+          "Ensuring safety and proper handling practices",
+          "Professional fibre termination skills"
+        ],
+        "deliveryMode": "Hands-on, immersive training with industry-grade tools.",
+        "assessmentMethods": ["Compliance testing", "Practical exercises"],
+        "skillTree": []
+      },
+      {
+        "title": "Pit & Pipe Installation (ACMA Underground Endorsement)",
+        "description": "Hands-on training in underground cable installation and infrastructure construction for telecommunications.",
+        "category": "Telecommunications",
+        "cost": {
+          "total": 450,
+          "perModule": null
+        },
+        "duration": {
+          "months": null,
+          "hours": null
+        },
+        "qualificationDescription": "Prepares students for safe and effective installation of underground telecommunications infrastructure.",
+        "careerOutcomes": [],
+        "structure": {
+          "totalUnits": 3,
+          "coreUnits": [
+            {
+              "code": "ICTCBL329",
+              "title": "Install underground cable for communications applications"
+            },
+            {
+              "code": "ICTCBL253",
+              "title": "Construct underground telecommunications infrastructure"
+            },
+            {
+              "code": "ICTCBL334",
+              "title": "Install underground enclosures and conduit"
+            }
+          ],
+          "electiveUnits": []
+        },
+        "learningOutcomes": [
+          "Safe worksite setup and management",
+          "Working around other underground assets",
+          "Installation techniques for pits and conduits",
+          "Pit remediation practices for durability and compliance",
+          "In-field exercises to reinforce practical skills"
+        ],
+        "deliveryMode": "Hands-on training conducted at the training facility.",
+        "assessmentMethods": ["Practical tasks", "In-field exercises"],
+        "skillTree": []
+      },
+      {
+        "title": "Fibre to the Curb – FTTC Technician",
+        "description": "Practical training in FTTC installations, troubleshooting, and maintenance, providing technicians with the expertise to ensure network reliability.",
+        "category": "Optical Fiber",
+        "cost": {
+          "total": 975,
+          "perModule": null
+        },
+        "duration": {
+          "months": null,
+          "hours": null
+        },
+        "qualificationDescription": "Covers essential FTTC network skills with hands-on techniques and diagnostic tools.",
+        "careerOutcomes": [],
+        "structure": {
+          "totalUnits": 3,
+          "coreUnits": [
+            {
+              "code": "ICTCBL254",
+              "title": "Joint metallic conductor cable in access network"
+            },
+            {
+              "code": "ICTTEN313",
+              "title": "Work on and resolve recurrent network faults"
+            },
+            {
+              "code": "ICTCBL320",
+              "title": "Jumper metallic conductor cable in the access network"
+            }
+          ],
+          "electiveUnits": []
+        },
+        "learningOutcomes": [
+          "Safe work practices for the FTTC environment",
+          "Cable recognition, color coding, and appropriate usage",
+          "Systematic fault-finding techniques for network quality",
+          "Testing techniques and network performance analysis"
+        ],
+        "deliveryMode": "Hands-on training conducted at the training facility.",
+        "assessmentMethods": ["Practical tasks", "Fault-finding exercises"],
+        "skillTree": []
+      },
+      {
+        "title": "Optical Fibre Jointing and Splicing",
+        "description": "Hands-on training in splicing and terminating optical fibre cables for telecommunications projects, aligning with nbn™ Skill 13 standards.",
+        "category": "Optical Fiber",
+        "cost": {
+          "total": 650,
+          "perModule": null
+        },
+        "duration": {
+          "months": null,
+          "hours": null
+        },
+        "qualificationDescription": "Focuses on fibre jointing and splicing techniques required for field-ready applications.",
+        "careerOutcomes": [],
+        "structure": {
+          "totalUnits": 1,
+          "coreUnits": [
+            {
+              "code": "ICTCBL330",
+              "title": "Splice and terminate optical fibre cable for telecommunications projects"
+            }
+          ],
+          "electiveUnits": []
+        },
+        "learningOutcomes": [
+          "Understanding optical fibre properties and transmission",
+          "Fibre preparation and splicing techniques",
+          "Installation and use of fibre closures and distribution frames",
+          "Conducting transmission testing to ensure quality"
+        ],
+        "deliveryMode": "Hands-on training with specialized tools and equipment.",
+        "assessmentMethods": ["Practical tasks", "Transmission testing"],
+        "skillTree": []
+      },
+      {
+        "title": "Structured Cabling",
+        "description": "Intensive, hands-on training in the installation, termination, and certification of structured cabling systems.",
+        "category": "Telecommunications",
+        "cost": {
+          "total": 375,
+          "perModule": null
+        },
+        "duration": {
+          "months": null,
+          "hours": null
+        },
+        "qualificationDescription": "Prepares learners to work confidently in telecommunications environments.",
+        "careerOutcomes": [],
+        "structure": {
+          "totalUnits": 1,
+          "coreUnits": [
+            {
+              "code": "ICTCBL301",
+              "title": "Install, terminate and certify structured cabling installation"
+            }
+          ],
+          "electiveUnits": []
+        },
+        "learningOutcomes": [
+          "Understanding structured cabling standards for voice and data integration",
+          "Planning and utilizing pathways and spaces for cabling",
+          "Hands-on installation and termination techniques",
+          "Field testing of cabling for compliance and performance"
+        ],
+        "deliveryMode": "Hands-on training conducted at the training facility.",
+        "assessmentMethods": ["Practical tasks", "Field testing"],
+        "skillTree": []
+      },
+      {
+        "title": "Coaxial Cabling",
+        "description": "Practical, hands-on training in installing and terminating coaxial cables within customer premises.",
+        "category": "Telecommunications",
+        "cost": {
+          "total": 200,
+          "perModule": null
+        },
+        "duration": {
+          "months": null,
+          "hours": null
+        },
+        "qualificationDescription": "Equips learners with foundational skills for effective coaxial cable installation and termination.",
+        "careerOutcomes": [],
+        "structure": {
+          "totalUnits": 1,
+          "coreUnits": [
+            {
+              "code": "ICTCBL303",
+              "title": "Install and terminate coaxial cabling"
+            }
+          ],
+          "electiveUnits": []
+        },
+        "learningOutcomes": [
+          "Understanding connectors and their applications in coaxial systems",
+          "Techniques for proper coaxial cable installation",
+          "Overview of coaxial cable systems and their various uses",
+          "Conducting transmission testing to ensure performance"
+        ],
+        "deliveryMode": "Hands-on training conducted at the training facility.",
+        "assessmentMethods": ["Practical tasks", "Transmission testing"],
+        "skillTree": []
+      },
+      {
+        "title": "Aerial Cabling (ACMA Aerial Endorsement)",
+        "description": "Immersive, practical training for installing and supporting aerial communication cables.",
+        "category": "Telecommunications",
+        "cost": {
+          "total": 250,
+          "perModule": null
+        },
+        "duration": {
+          "months": null,
+          "hours": null
+        },
+        "qualificationDescription": "Provides essential skills for aerial cable support construction and installation.",
+        "careerOutcomes": [],
+        "structure": {
+          "totalUnits": 2,
+          "coreUnits": [
+            {
+              "code": "ICTCBL333",
+              "title": "Install aerial cable for communications applications"
+            },
+            {
+              "code": "ICTCBL335",
+              "title": "Construct aerial cable supports"
+            }
+          ],
+          "electiveUnits": []
+        },
+        "learningOutcomes": [
+          "Preparing sites for aerial cable support construction",
+          "Installing support structures with pole and wall support",
+          "Planning and executing aerial cable installations",
+          "Ensuring secure sealing and stability of aerial cables"
+        ],
+        "deliveryMode": "Hands-on training conducted at the training facility.",
+        "assessmentMethods": ["Practical tasks", "Field exercises"],
+        "skillTree": []
+      },
+      {
+        "title": "Optical Fibre Hygiene",
+        "description": "Hands-on training in the essential practices of inspecting, cleaning, and handling optical fibre cables and connectors.",
+        "category": "Optical Fiber",
+        "cost": {
+          "total": 150,
+          "perModule": null
+        },
+        "duration": {
+          "months": null,
+          "hours": null
+        },
+        "qualificationDescription": "Prepares students to uphold the highest standards of fibre hygiene and safety.",
+        "careerOutcomes": [],
+        "structure": {
+          "totalUnits": 1,
+          "coreUnits": [
+            {
+              "code": "ICTTEN318",
+              "title": "Inspect, clean and handle optical fibre cable and connectors"
+            }
+          ],
+          "electiveUnits": []
+        },
+        "learningOutcomes": [
+          "Understanding fibre basics, including core safety practices and handling",
+          "Identifying cable and connector types for proper handling",
+          "Techniques for inspecting and cleaning fibre connectors"
+        ],
+        "deliveryMode": "Hands-on training conducted with industry-approved tools.",
+        "assessmentMethods": ["Practical tasks", "Inspection exercises"],
+        "skillTree": []
+      }
 ]

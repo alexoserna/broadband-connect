@@ -47,8 +47,8 @@ const typeDefs = gql`
   }
 
   type Query {
-    courses: [Course]
-    course(id: ID!): Course
+    getCourses: [Course]!
+    getCourseById(id: ID!): Course
   }
 
   type Mutation {

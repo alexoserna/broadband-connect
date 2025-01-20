@@ -13,6 +13,10 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
+
+import { setContext } from '@apollo/client/link/context';
+import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from "@apollo/client";
+
 function App() {
   const [count, setCount] = useState(0);
 
@@ -21,11 +25,11 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/courses" element={<Courses />} />
-        <Route path="/course-post" element={<CoursePost />} />
-        <Route path="/careers" element={<Careers />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/about" element={<About />} />
+        <Route path="courses" element={<Courses />} />
+        <Route path="courses/:courseId" element={<CoursePost />} />
+        <Route path="careers" element={<Careers />} />
+        <Route path="contact" element={<Contact />} />
+        <Route path="about" element={<About />} />
       </Routes>
       <Footer />
     </>

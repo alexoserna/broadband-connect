@@ -10,6 +10,7 @@ const ImgCard = ({ image, title, description }) => {
     return (
         <Card sx={{
             maxWidth: 345,
+            mx: 'auto',
             boxShadow: 3,
             backgroundColor: alpha(theme.palette.secondary.main, 0.2),
             borderRadius: '18px'

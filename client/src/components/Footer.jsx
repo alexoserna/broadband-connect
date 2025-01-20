@@ -12,12 +12,18 @@ const Footer = () => {
         <Box sx={{
             padding: '20px 40px', // Padding for the footer
             marginTop: 'auto', // Pushes the footer to the bottom
-            width: '90vw',
         }}>
             {/* Main content inside the footer */}
-            <Grid container alignItems="center" spacing={2}>
+            <Grid container spacing={2}>
                 {/* Left section - Logo and navigation links */}
-                <Grid size={{ xs: 12, md: 6 }}>
+                <Grid 
+                size={{ xs: 12, md: 6 }} 
+                sx={{
+                    display : {
+                        xs: 'block',
+                        md: 'flex'
+                    }
+                }}>
                     <SvgIcon sx={{ color: theme.palette.primary.main }}>
                         {/* credit: cog icon from https://heroicons.com */}
                         <svg
@@ -34,7 +40,10 @@ const Footer = () => {
 
                 {/* Center section - Navigation Links */}
                 <Grid size={{ xs: 12, md: 6 }}>
-                    <Box sx={{ display: 'flex', justifyContent: 'flex-end', gap: 3, color: theme.palette.text.primary}}>
+                    <Box sx={{ display: 'flex', justifyContent: {
+                        xs: 'center',
+                        md: 'flex-end'
+                    }, gap: 3, color: theme.palette.text.primary}}>
                         <Typography component={Link} to={`/contact`} sx={{ textAlign: 'center' }}>
                             Contact Us
                         </Typography>

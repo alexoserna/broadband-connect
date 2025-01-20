@@ -10,8 +10,8 @@ const courseSchema = new Schema({
         perModule: { type: Number }, // Optional breakdown
     },
     duration: {
-        months: { type: Number, required: true }, // Course duration in months
-        hours: { type: Number }, // Optional: Total hours
+        months: { type: Number, default: null }, // Course duration in months
+        hours: { type: Number, default: null }, // Optional: Total hours
     },
 
     // Qualification Information
