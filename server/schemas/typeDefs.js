@@ -6,6 +6,7 @@ const typeDefs = gql`
     title: String!
     description: String!
     category: String
+    slug: String
     cost: Cost
     duration: Duration
     qualificationDescription: String!
@@ -49,6 +50,7 @@ const typeDefs = gql`
   type Query {
     getCourses: [Course]!
     getCourseById(id: ID!): Course
+    getCourseBySlug(slug: String) : Course
   }
 
   type Mutation {

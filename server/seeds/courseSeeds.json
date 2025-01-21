@@ -3,6 +3,7 @@
         "title": "Cert III in Telecommunications Technology",
         "description": "The Certificate III in Telecommunications Technology is designed for telecommunications technology operators involved in installation, fault-finding, and testing of telecommunications systems and equipment.",
         "category": "Telecommunications",
+        "slug" : "cert-iii",
         "cost": {
             "total": 7680,
             "perModule": 480
@@ -103,6 +104,7 @@
         "title": "Open Cabler Registration",
         "description": "Essential training for working safely and effectively with customer premises cabling installations. Covering both ACMA Restricted and Open Rules, this course equips learners with practical skills and technical knowledge needed to comply with industry standards.",
         "category": "Telecommunications",
+        "slug" : "open-cabler-registration",
         "cost": {
           "total": 650,
           "perModule": null
@@ -147,6 +149,7 @@
         "title": "Optical Fibre Cabling",
         "description": "Immersive, practical training in optical fibre installation, testing, and maintenance for nbn™ Skill 33 & 9.",
         "category": "Optical Fiber",
+        "slug" : "optical-fibre-cabling",
         "cost": {
           "total": 400,
           "perModule": null
@@ -187,6 +190,7 @@
         "title": "Pit & Pipe Installation (ACMA Underground Endorsement)",
         "description": "Hands-on training in underground cable installation and infrastructure construction for telecommunications.",
         "category": "Telecommunications",
+        "slug" : "pit-and-pipe",
         "cost": {
           "total": 450,
           "perModule": null
@@ -230,6 +234,7 @@
         "title": "Fibre to the Curb – FTTC Technician",
         "description": "Practical training in FTTC installations, troubleshooting, and maintenance, providing technicians with the expertise to ensure network reliability.",
         "category": "Optical Fiber",
+        "slug" : "fttc-technician",
         "cost": {
           "total": 975,
           "perModule": null
@@ -272,6 +277,7 @@
         "title": "Optical Fibre Jointing and Splicing",
         "description": "Hands-on training in splicing and terminating optical fibre cables for telecommunications projects, aligning with nbn™ Skill 13 standards.",
         "category": "Optical Fiber",
+        "slug" : "optical-fibre-jointing-and-splicing",
         "cost": {
           "total": 650,
           "perModule": null
@@ -306,6 +312,7 @@
         "title": "Structured Cabling",
         "description": "Intensive, hands-on training in the installation, termination, and certification of structured cabling systems.",
         "category": "Telecommunications",
+        "slug": "structured-cabling",
         "cost": {
           "total": 375,
           "perModule": null
@@ -340,6 +347,7 @@
         "title": "Coaxial Cabling",
         "description": "Practical, hands-on training in installing and terminating coaxial cables within customer premises.",
         "category": "Telecommunications",
+        "slug" : "coaxial-cabling",
         "cost": {
           "total": 200,
           "perModule": null
@@ -374,6 +382,7 @@
         "title": "Aerial Cabling (ACMA Aerial Endorsement)",
         "description": "Immersive, practical training for installing and supporting aerial communication cables.",
         "category": "Telecommunications",
+        "slug": "aerial-cabling",
         "cost": {
           "total": 250,
           "perModule": null
@@ -412,6 +421,7 @@
         "title": "Optical Fibre Hygiene",
         "description": "Hands-on training in the essential practices of inspecting, cleaning, and handling optical fibre cables and connectors.",
         "category": "Optical Fiber",
+        "slug": "optical-fibre-hygiene",
         "cost": {
           "total": 150,
           "perModule": null

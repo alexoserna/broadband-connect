@@ -5,6 +5,9 @@ const courseSchema = new Schema({
     title: { type: String, required: true },
     description: { type: String, required: true },
     category: { type: String }, // E.g., "Telecommunications"
+    // Slug
+    slug: { type: String, unique: true },
+    
     cost: {
         total: { type: Number, required: true }, // Total cost
         perModule: { type: Number }, // Optional breakdown

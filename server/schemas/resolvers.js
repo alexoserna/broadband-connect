@@ -19,9 +19,19 @@ const resolvers = {
       } catch (error) {
         throw new Error(error.message);
       }
-
-
-    }
+    },
+    getCourseBySlug: async (_, { slug }) => {
+      try {
+        const course = await Course.findOne({ slug });
+        if (!course) throw new Error("Course not found");
+        if (!course.duration.months) {
+          course.duration.months = 0; // Default value
+        }
+        return course;
+      } catch (error) {
+        throw new Error(error.message);
+      }
+    },
   }
 };
 

@@ -4,9 +4,10 @@ import { Box, Typography, Container } from '@mui/material';
 import Grid from '@mui/material/Grid2';
 import { QUERY_COURSES } from '../utils/queries.js';
 import { Link, Links } from 'react-router-dom';
-import { useTheme } from '@mui/material/styles';
+import { alpha, useTheme } from '@mui/material/styles';
 import SearchBar from '../components/SearchBar.jsx';
-
+import SkillTree from '../components/SkillTree.jsx';
+import { useState } from 'react';
 
 const Courses = () => {
 
@@ -18,7 +19,7 @@ const Courses = () => {
 
   return (
 
-    <Grid container spacing={0} sx={{width: '100vw'}}>
+    <Grid container spacing={0} sx={{ width: '100vw' }}>
       {/* Overall Grid container ^^ */}
 
       {/* Hero Item */}
@@ -34,9 +35,9 @@ const Courses = () => {
 
       {/* Middle Nav/ filtering */}
       <Grid size={12}>
-        <Container sx={{ display: 'flex', width:{ xs: '100%', md: '50%'}, my: 5 }}>
+        <Container sx={{ display: 'flex', width: { xs: '100%', md: '50%' }, mt: 5 }}>
 
-          <SearchBar courses={data.getCourses }/>
+          <SearchBar courses={data.getCourses} />
 
         </Container>
       </Grid>
@@ -44,22 +45,14 @@ const Courses = () => {
       {/* Course Group/Categorization */}
       <Grid size={12}>
         <Container>
-          <Grid container spacing={2} sx={{ textAlign: 'left' }}>
+          <Grid container spacing={2} sx={{ textAlign: 'left' , mt: 3}}>
+            {/* Get started */}
             <Grid size={12}>
-              <Typography variant='h4'>Get started with ...</Typography>
+              <Typography variant='h5'>Get started with Open Cabler and work your way to FTTC Technician!</Typography>
             </Grid>
-            <Grid size={{ xs: 12, md: 3 }}>
-              <Typography variant='h5'>Open cabling</Typography>
-            </Grid>
-            <Grid size={{ xs: 12, md: 3 }}>
-              <Typography variant='h5'>Optical fiber endorsement</Typography>
-            </Grid>
-            <Grid size={{ xs: 12, md: 3 }}>
-              <Typography variant='h5'>Underground Pit and Pipe</Typography>
-            </Grid>
-            <Grid size={{ xs: 12, md: 3 }}>
-              <Typography variant='h5'>FTTC</Typography>
-            </Grid>
+            {/*Skill tree Component*/}
+            <SkillTree />
+
             <Grid size={{ xs: 12, md: 8 }}>
               <Typography variant='h2'>Certificate III</Typography>
             </Grid>
@@ -76,7 +69,7 @@ const Courses = () => {
           <Grid container spacing={2}>
             {data.getCourses.map((course, index) => (
               <Grid key={index} size={{ xs: 6, md: 4 }}>
-                <Typography component={Link} to={`/courses/${course.id}`} variant='body1'>{course.title}</Typography>
+                <Typography component={Link} to={`/courses/${course.slug}`} variant='body1'>{course.title}</Typography>
                 <p>{course.id}</p>
                 <p>{course.description}</p>
               </Grid>

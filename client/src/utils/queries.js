@@ -7,6 +7,7 @@ export const QUERY_COURSES = gql`
             title
             description
             category
+            slug
             cost {
                 total
                 perModule
@@ -39,6 +40,7 @@ export const QUERY_COURSES = gql`
 export const QUERY_COURSE = gql`
     query getOneCourse($id: ID!) {
         getCourseById(id: $id) {
+            slug
             assessmentMethods
             careerOutcomes
             category
@@ -76,6 +78,53 @@ export const QUERY_COURSE = gql`
                 group
                 title
             }
+            }
+            title
+        }
+    }
+`;
+
+export const QUERY_COURSE_BY_SLUG = gql`
+    query getCourseBySlug($slug: String!) {
+        getCourseBySlug(slug: $slug) {
+            slug
+            assessmentMethods
+            careerOutcomes
+            category
+            cost {
+                perModule
+                total
+            }
+            deliveryMode
+            description
+            duration {
+                hours
+                months
+            }
+            learningOutcomes
+            qualificationDescription
+            skillTree {
+                description
+                outcomes {
+                    code
+                    group
+                    title
+                }
+                price
+                skillName
+            }
+            structure {
+                totalUnits
+                electiveUnits {
+                    code
+                    group
+                    title
+                }
+                coreUnits {
+                    code
+                    group
+                    title
+                }
             }
             title
         }
