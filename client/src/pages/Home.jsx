@@ -20,7 +20,7 @@ const Home = () => {
             minHeight: '85vh',
             display: 'flex',
             alignItems: 'center',
-            padding: {xs: '72px 10px', md: '64px 112px'},
+            padding: {xs: '72px 10px', md: '88px 112px'},
             gap: '80px',
           }}
         >

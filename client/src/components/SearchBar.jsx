@@ -1,38 +1,131 @@
 import React, { useState } from "react";
-import { TextField, IconButton, InputAdornment } from "@mui/material";
+import {
+  TextField,
+  List,
+  ListItem,
+  ListItemText,
+  Typography,
+  IconButton,
+  Box,
+  Paper
+} from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 
-const SearchBar = ({ onSearch }) => {
+const SearchBar = ({ courses }) => {
   const [searchTerm, setSearchTerm] = useState("");
+  const [filteredCourses, setFilteredCourses] = useState([]);
 
-  const handleSearch = () => {
-    if (onSearch) {
-      onSearch(searchTerm);
+  const handleSearch = (query) => {
+    setSearchTerm(query);
+
+    if (query.trim() === "") {
+      setFilteredCourses([]);
+    } else {
+      const lowerCaseQuery = query.toLowerCase();
+
+      setFilteredCourses(
+        courses.filter((course) => {
+          const matchesTitle = course.title?.toLowerCase().includes(lowerCaseQuery);
+          const matchesDescription = course.description
+            ?.toLowerCase()
+            .includes(lowerCaseQuery);
+          const matchesQualification = course.qualificationDescription
+            ?.toLowerCase()
+            .includes(lowerCaseQuery);
+          const matchesCareerOutcomes = course.careerOutcomes?.some((outcome) =>
+            outcome?.toLowerCase().includes(lowerCaseQuery)
+          );
+          const matchesCoreUnits = course.structure?.coreUnits?.some(
+            (unit) =>
+              unit.code?.toLowerCase().includes(lowerCaseQuery) ||
+              unit.title?.toLowerCase().includes(lowerCaseQuery)
+          );
+          const matchesElectiveUnits = course.structure?.electiveUnits?.some(
+            (unit) =>
+              unit.code?.toLowerCase().includes(lowerCaseQuery) ||
+              unit.title?.toLowerCase().includes(lowerCaseQuery)
+          );
+
+          return (
+            matchesTitle ||
+            matchesDescription ||
+            matchesQualification ||
+            matchesCareerOutcomes ||
+            matchesCoreUnits ||
+            matchesElectiveUnits
+          );
+        })
+      );
     }
   };
 
   return (
-    <TextField
-      variant="outlined"
-      placeholder="Search..."
-      value={searchTerm}
-      onChange={(e) => setSearchTerm(e.target.value)}
-      onKeyUp={(e) => {
-        if (e.key === "Enter") {
-          handleSearch();
-        }
-      }}
-      InputProps={{
-        endAdornment: (
-          <InputAdornment position="end">
-            <IconButton onClick={handleSearch}>
-              <SearchIcon />
-            </IconButton>
-          </InputAdornment>
-        ),
-      }}
-      fullWidth
-    />
+    <Box sx={{
+      width: "100%",
+      maxWidth: 800,
+      margin: "0 auto",
+      mt: 1,
+      position: 'relative'
+    }}>
+      {/* Search Bar */}
+      <TextField
+        fullWidth
+        variant="outlined"
+        placeholder="Search courses, modules, or outcomes..."
+        color="accent"
+        value={searchTerm}
+        onChange={(e) => handleSearch(e.target.value)}
+        slotProps={{
+          input: {
+            endAdornment: (
+              <IconButton>
+                <SearchIcon />
+              </IconButton>
+            ),
+          }
+        }}
+        sx={{
+          mb: 2,
+          borderRadius: '7p',
+        }}
+      />
+
+      {/* Results */}
+      {searchTerm.trim() && (
+        <Paper
+          sx={{
+            position: "absolute",
+            top: "56px", // Adjust this to position it below the search bar
+            left: 0,
+            right: 0,
+            maxWidth: 800,
+            margin: "0 auto",
+            backgroundColor: "white",
+            boxShadow: 3,
+            zIndex: 10, // Ensure it overlays the rest of the content
+            maxHeight: "300px", // Limit height for scrollability
+            overflowY: "auto",
+          }}
+        >
+          {filteredCourses.length === 0 ? (
+            <Typography variant="body1" color="textSecondary" sx={{ p: 2 }}>
+              No courses found.
+            </Typography>
+          ) : (
+            <List>
+              {filteredCourses.map((course) => (
+                <ListItem key={course.id} divider>
+                  <ListItemText
+                    primary={course.title}
+                    secondary={course.description.substring(0, 100) + "..."}
+                  />
+                </ListItem>
+              ))}
+            </List>
+          )}
+        </Paper>
+      )}
+    </Box>
   );
 };
 

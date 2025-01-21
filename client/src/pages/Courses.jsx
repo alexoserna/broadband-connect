@@ -11,7 +11,7 @@ import SearchBar from '../components/SearchBar.jsx';
 const Courses = () => {
 
   const theme = useTheme();
-  const { loading, error, data } = useQuery(QUERY_COURSES)
+  const { loading, error, data } = useQuery(QUERY_COURSES);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message} <br /> Data: {data}</p>;
@@ -34,10 +34,9 @@ const Courses = () => {
 
       {/* Middle Nav/ filtering */}
       <Grid size={12}>
-        <Container sx={{ display: 'flex', width: '50%', my: 5 }}>
+        <Container sx={{ display: 'flex', width:{ xs: '100%', md: '50%'}, my: 5 }}>
 
-          <SearchBar />
-          <p>Insert filter/search button here</p>
+          <SearchBar courses={data.getCourses }/>
 
         </Container>
       </Grid>
@@ -45,7 +44,7 @@ const Courses = () => {
       {/* Course Group/Categorization */}
       <Grid size={12}>
         <Container>
-          <Grid container sx={{ textAlign: 'left' }}>
+          <Grid container spacing={2} sx={{ textAlign: 'left' }}>
             <Grid size={12}>
               <Typography variant='h4'>Get started with ...</Typography>
             </Grid>

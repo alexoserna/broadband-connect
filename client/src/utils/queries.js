@@ -6,6 +6,32 @@ export const QUERY_COURSES = gql`
             id
             title
             description
+            category
+            cost {
+                total
+                perModule
+            }
+            structure {
+                totalUnits
+                coreUnits {
+                    code
+                    title
+                }
+                electiveUnits {
+                    code
+                    title
+                    group
+                }
+            }
+            skillTree {
+                skillName
+                price
+                description
+                outcomes {
+                    code
+                    title
+                }
+            }
         }
     }
 `;
