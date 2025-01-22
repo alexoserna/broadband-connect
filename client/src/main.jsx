@@ -18,6 +18,18 @@ const client = new ApolloClient({
 // Create a custom theme
 let theme = createTheme({
 
+  components: {
+    MuiIconButton: {
+      styleOverrides: {
+        root: {
+          "&:focus": {
+            outline: "none", // Removes focus for all IconButtons
+          },
+        },
+      },
+    },
+  },
+  
   palette: {
     text: {
       primary: '#2C1F0E',

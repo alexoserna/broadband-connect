@@ -10,7 +10,7 @@ const Footer = () => {
 
     return (
         <Box sx={{
-            padding: '20px 40px', // Padding for the footer
+            padding: {xs: '10px', md: '20px 40px' }, // Padding for the footer
             marginTop: 'auto', // Pushes the footer to the bottom
         }}>
             {/* Main content inside the footer */}

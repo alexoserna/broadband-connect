@@ -47,7 +47,7 @@ const Home = () => {
                   backgroundImage: `url(${heroImage})`,
                   backgroundSize: 'cover',          // Ensure the image covers the container
                   backgroundPosition: 'center',     // Center the image 
-                  width: {xs: '364px', md: '100%'},                     // Ensure the container spans full width
+                  width: {xs: '336px', md: '100%'},                     // Ensure the container spans full width
                   minHeight: '247px',                // Prevent any width constraints
                   aspectRatio: '1/1',
                 }}
