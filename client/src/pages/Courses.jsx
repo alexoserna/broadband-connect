@@ -24,14 +24,27 @@ const Courses = () => {
       {/* Overall Grid container ^^ */}
 
       {/* Hero Item */}
-      <Grid
-        size={12}
-        sx={{
-          py: '80px',
-          backgroundColor: theme.palette.primary.main,
-        }}>
-        <Typography variant='h1'>"Find Your Next Step in Telecommunications Training"</Typography>
-        <Typography variant='h5'>"Explore a variety of courses tailored to your career goals. Filter by category, skill level, or cost to find the perfect match for your journey."</Typography>
+      <Grid size={12}>
+        <Box
+          sx={{
+            height: '100vh',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+            textAlign: 'center',
+            background: 'linear-gradient(to bottom right, #c26a15, #f5d1b0)',
+            color: '#fff',
+            padding: '0 2rem',
+            position: 'relative',
+            overflow: 'hidden',
+          }}>
+
+          
+            
+          <Typography variant='h1'>Your Future in Telecommunications Starts Here</Typography>
+          <Typography variant='h5'>"Explore industry-leading courses designed to elevate your skills, fast-track your career, and connect you with opportunities.</Typography>
+        </Box>
       </Grid>
 
       {/* Middle Nav/ filtering */}
@@ -102,7 +115,7 @@ const Courses = () => {
             <Grid
               size={12}
               sx={{
-                backgroundColor:  alpha(theme.palette.text.primary, 0.8),
+                backgroundColor: alpha(theme.palette.text.primary, 0.8),
                 height: '80px',
                 borderRadius: '18px',
                 padding: 2,

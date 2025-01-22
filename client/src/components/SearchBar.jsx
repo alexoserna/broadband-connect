@@ -11,9 +11,11 @@ import {
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import { Link } from "react-router-dom";
+import { useTheme } from "@emotion/react";
 
 const SearchBar = ({ courses }) => {
 
+  const theme = useTheme();
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredCourses, setFilteredCourses] = useState([]);
 
