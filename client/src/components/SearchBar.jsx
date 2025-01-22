@@ -10,8 +10,10 @@ import {
   Paper
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
+import { Link } from "react-router-dom";
 
 const SearchBar = ({ courses }) => {
+
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredCourses, setFilteredCourses] = useState([]);
 
@@ -108,16 +110,21 @@ const SearchBar = ({ courses }) => {
           }}
         >
           {filteredCourses.length === 0 ? (
-            <Typography variant="body1" color="textSecondary" sx={{ p: 2 }}>
+            <Typography variant="body1" sx={{ p: 2 }}>
               No courses found.
             </Typography>
           ) : (
             <List>
               {filteredCourses.map((course) => (
-                <ListItem key={course.id} divider>
+                <ListItem
+                  key={course.id}
+                  sx={{color: theme.palette.text.primary}}
+                  component={Link}
+                  to={`/courses/${course.slug}`}
+                  divider>
                   <ListItemText
                     primary={course.title}
-                    secondary={course.description.substring(0, 100) + "..."}
+                    secondary={<Typography color="textPrimary">{course.description.substring(0, 100) + "..."}</Typography>}
                   />
                 </ListItem>
               ))}

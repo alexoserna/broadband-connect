@@ -70,7 +70,7 @@ const Footer = () => {
                 alignItems: 'center',
                 py: '36px'
             }}>
-                <Typography variant="body2" color="textSecondary" sx={{ fontSize: 12 }}>
+                <Typography variant="body2" color="textPrimary" sx={{ fontSize: 12 }}>
                     © 2025 Broadband Connect. All rights reserved.
                 </Typography>
 

@@ -1,4 +1,5 @@
 import Header from './components/Header';
+import NavWithSearch from './components/NavSearch';
 import Home from './pages/Home';
 import Courses from './pages/Courses';
 import CoursePost from './pages/CoursePost';
@@ -6,6 +7,7 @@ import Careers from './pages/Careers';
 import Contact from './pages/Contact';
 import About from './pages/About';
 import Footer from './components/Footer';
+import RPL from './pages/RPL';
 
 import { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
@@ -22,11 +24,13 @@ function App() {
 
   return (
     <>
-      <Header />
+      {/* <Header /> */}
+      <NavWithSearch />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="courses" element={<Courses />} />
         <Route path="courses/:slug" element={<CoursePost />} />
+        <Route path="courses/recognized-prior-learning" element={<RPL />} />
         <Route path="careers" element={<Careers />} />
         <Route path="contact" element={<Contact />} />
         <Route path="about" element={<About />} />

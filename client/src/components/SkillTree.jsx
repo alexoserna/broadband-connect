@@ -3,6 +3,7 @@ import { alpha, useTheme } from '@mui/material/styles';
 import { QUERY_COURSE_BY_SLUG } from "../utils/queries";
 import Grid from '@mui/material/Grid2';
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const SkillTree = () => {
 
@@ -33,33 +34,41 @@ const SkillTree = () => {
     const [activeIndex, setActiveIndex] = useState(0);
 
     return (
-        <Grid container spacing={3} justifyContent="center" alignItems="center" sx={{width : '100%'}}>
+        <Grid container spacing={3} justifyContent="center" alignItems="center" sx={{ width: '100%' }}>
             {courses.map((course, index) => (
                 <Grid
-                    size={{sx:12, md: 3}}
+                    size={{ sx: 12, md: 3 }}
                     key={index}
                     onMouseEnter={() => setActiveIndex(index)} // Change active course on hover
                 >
                     <Box
+                        component={Link}
+                        to={`/courses/${course.slug}`}
                         sx={{
                             padding: 1,
                             height: '92px',
                             maxWidth: '300px',
+                            width: '100%',
                             display: 'flex',
-                            flexDirection:'column',
+                            flexDirection: 'column',
                             justifyContent: 'center',
                             textAlign: 'center',
                             cursor: 'pointer',
                             borderRadius: '18px',
                             transition: 'transform 0.3s, background 0.3s, box-shadow 0.3s',
                             transform: activeIndex === index ? 'scale(1.09)' : 'scale(1)',
-                            background:`linear-gradient(135deg,${theme.palette.primary.main},${theme.palette.primary.secondary})`,
-                            filter: activeIndex === index ? 'none' : `grayscale(${(index+1)*25}%)`,
+                            background: `linear-gradient(135deg,${theme.palette.primary.main},${theme.palette.primary.secondary})`,
+                            filter: activeIndex === index ? 'none' : `grayscale(${(index + 1) * 25}%)`,
                             boxShadow:
                                 activeIndex === index
                                     ? '0 4px 20px rgba(0, 0, 0, 0.2)'
                                     : '0 2px 10px rgba(0, 0, 0, 0.1)',
-                            color: activeIndex === index ? `${theme.palette.backgroundCream.card}` : '#CACACB',
+                            color:'#CACACB',
+                            textDecoration: 'none', // Removes the underline
+                            '&:hover': {
+                                color: activeIndex === index ? `${theme.palette.backgroundCream.card}` : '#CACACB',
+                                textDecoration: 'none', // Ensures no underline on hover
+                            },
                         }}
                     >
                         <Typography variant="h6">{course.title}</Typography>

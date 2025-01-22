@@ -21,6 +21,8 @@ let theme = createTheme({
   palette: {
     text: {
       primary: '#2C1F0E',
+      secondary: '#F1E3DA',
+      hyper: '#153243',
     },
     primary: {
       main: '#C0392B',
