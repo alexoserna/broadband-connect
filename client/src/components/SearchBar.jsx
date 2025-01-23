@@ -11,13 +11,15 @@ import {
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import { Link } from "react-router-dom";
-import { useTheme } from "@emotion/react";
+import { alpha, useTheme } from '@mui/material/styles';
 
 const SearchBar = ({ courses }) => {
 
   const theme = useTheme();
   const [searchTerm, setSearchTerm] = useState("");
+  const [searchOpen, setSearchOpen] = useState(false);
   const [filteredCourses, setFilteredCourses] = useState([]);
+
 
   const handleSearch = (query) => {
     setSearchTerm(query);
@@ -69,7 +71,8 @@ const SearchBar = ({ courses }) => {
       maxWidth: 800,
       margin: "0 auto",
       mt: 1,
-      position: 'relative'
+      position: 'relative',
+      borderRadius: '25px',
     }}>
       {/* Search Bar */}
       <TextField
@@ -82,7 +85,10 @@ const SearchBar = ({ courses }) => {
         slotProps={{
           input: {
             endAdornment: (
-              <IconButton>
+              <IconButton
+              sx={{
+                marginRight: '8px'
+              }}>
                 <SearchIcon />
               </IconButton>
             ),
@@ -90,7 +96,15 @@ const SearchBar = ({ courses }) => {
         }}
         sx={{
           mb: 2,
-          borderRadius: '7p',
+          '& .MuiOutlinedInput-root': {
+            borderRadius: '25px',
+            background: alpha(theme.palette.backgroundCream.card, 0.2),
+            overflow: 'hidden',
+            padding: '0px', 
+            '& fieldset': {
+              borderColor: '#ccc', // Default border color
+            },
+          },
         }}
       />
 
@@ -120,7 +134,7 @@ const SearchBar = ({ courses }) => {
               {filteredCourses.map((course) => (
                 <ListItem
                   key={course.id}
-                  sx={{color: theme.palette.text.primary}}
+                  sx={{ color: theme.palette.text.primary }}
                   component={Link}
                   to={`/courses/${course.slug}`}
                   divider>
