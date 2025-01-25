@@ -54,10 +54,10 @@ const resolvers = {
 
     // Courses
     getAllCourses: async () => {
-      return await Course.find().populate("coreUnits").populate("electiveUnits");
+      return await Course.find().populate("coreUnits");
     },
     getCourseBySlug: async (_, { slug }) => {
-      return await Course.findOne({ slug }).populate("coreUnits").populate("electiveUnits");
+      return await Course.findOne({ slug }).populate("coreUnits");
     },
 
     // Certifications

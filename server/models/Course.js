@@ -12,6 +12,7 @@ const courseSchema = new Schema({
       hours: { type: Number },
       months: { type: Number }
     },
+    coreUnits: [{ type: Schema.Types.ObjectId, ref: 'Unit' }],
     assessmentMethods: { type: [String], required: true },
     learningOutcomes: { type: [String], required: true },
     prerequisites: { type: [String] },

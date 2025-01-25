@@ -17,7 +17,6 @@ const typeDefs = gql`
     courseDescription: String!
     courseInformation: String!
     coreUnits: [Unit]
-    electiveUnits: [Unit]
     learningOutcomes: [String]
     nbnSkills: [String]
     images: [String]

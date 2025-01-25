@@ -78,5 +78,45 @@
         "code": "ICTTEN318",
         "title": "Inspect, clean and handle optical fibre cable and connectors",
         "group": "Group F"
+    },
+    {
+        "code": "ICTTEN254",
+        "title": "Joint metallic conductor cable in the access network.",
+        "group": "Elective"
+    },
+    {
+        "code": "ICTTEN320",
+        "title": "Jumper metallic conductor cable in the access network.",
+        "group": "Elective"
+    },
+    {
+        "code": "ICTTEN326",
+        "title": "Cut over metallic conductor cable in the access network.",
+        "group": "Elective"
+    },
+    {
+        "code": "ICTTEN332",
+        "title": "Locate, identify and rectify copper cable faults.",
+        "group": "Elective"
+    },
+    {
+        "code": "ICTTEN306",
+        "title": "Locate and identify cable system faults.",
+        "group": "Elective"
+    },
+    {
+        "code": "ICTTEN246",
+        "title": "Install, maintain and modify customer premises communications cabling: ACMA Restricted Rule",
+        "group": "Core"
+    },
+    {
+        "code": "ICTTEN313",
+        "title": "Work on and resolve recurrent network faults",
+        "group": "Core"
+    },
+    {
+        "code": "ICTTEN335",
+        "title": " Construct aerial cable supports",
+        "group": "Core"
     }
 ]
