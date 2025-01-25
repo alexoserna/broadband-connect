@@ -29,7 +29,7 @@ let theme = createTheme({
       },
     },
   },
-  
+
   palette: {
     text: {
       primary: '#2C1F0E',
@@ -42,6 +42,7 @@ let theme = createTheme({
     },
     secondary: {
       main: '#007B43',
+      light: '#b7d0bc',
     },
     accent: {
       main: '#D4A017',
@@ -63,25 +64,32 @@ theme = responsiveFontSizes(theme);
 
 // Create dark mode theme to be implemented later
 const themeDark = createTheme({
-
-  palette: {
-    primary: {
-      main: '#D44F40',
+  typography: {
+    h5: {
+      fontWeight: 1200, // Apply to all `h6` elements
     },
-    secondary: {
-      main: '#85FFC8',
-    },
-    accent: {
-      main: '#E8B22C'
-    },
-    // background colors
-    backgroundCream: {
-      main: '#1A130A',
-    },
-    textColor: {
-      main: 'F2E5D4',
+    body2: {
+      fontWeight: 400, // Apply to all `body2` elements
     },
   },
+  palette: {
+  primary: {
+    main: '#D44F40',
+  },
+  secondary: {
+    main: '#85FFC8',
+  },
+  accent: {
+    main: '#E8B22C'
+  },
+  // background colors
+  backgroundCream: {
+    main: '#1A130A',
+  },
+  textColor: {
+    main: 'F2E5D4',
+  },
+},
 
 });
 

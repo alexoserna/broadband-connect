@@ -67,7 +67,7 @@ const SearchBar = ({ courses }) => {
 
   return (
     <Box sx={{
-      width: "100%",
+      width: {xs: '90%', md: "100%"},
       maxWidth: 800,
       margin: "0 auto",
       mt: 1,

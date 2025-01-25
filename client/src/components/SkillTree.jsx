@@ -1,11 +1,58 @@
-import { Box, Container, Typography } from "@mui/material";
+import { Box, Container, Typography, Card, CardContent, Tooltip } from "@mui/material";
 import { alpha, useTheme } from '@mui/material/styles';
 import { QUERY_COURSE_BY_SLUG } from "../utils/queries";
 import Grid from '@mui/material/Grid2';
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, React, Fragment } from "react";
+import { Link, Links } from "react-router-dom";
+import { height, styled } from '@mui/system';
+import { motion } from "framer-motion";
+
+import InstallationImg from '../assets/images/installation.png';
+
+// Styled components for the Course Card
+const CourseCard = styled(Card)(({ theme }) => ({
+    display: 'flex',
+    justifyContent: 'center',
+    borderRadius: '16px',
+    boxShadow: '0px 4px 15px rgba(0, 0, 0, 0.1)',
+    cursor: 'pointer',
+    transition: 'all 0.3s ease-in-out',
+    padding: '25px',
+    marginBottom: 5,
+    backgroundColor: alpha(theme.palette.secondary.main, 0.25),
+    color: "textPrimary",
+    '&:hover': {
+        transform: 'scale(1.05)',
+        boxShadow: '0px 4px 15px rgba(0, 0, 0, 0.2)',
+    },
+}));
+
+// Connector component
+const Arrow = styled('div')(({ theme }) => ({
+    width: '2px',
+    height: '30px',
+    backgroundColor: theme.palette.accent.main,
+    margin: '0 auto',
+}));
 
 const SkillTree = () => {
+
+    const containerVariants = {
+        hidden: {}, // No specific animation for the container itself
+        visible: {
+            transition: { staggerChildren: 0.3 }, // Stagger child animations
+        },
+    };
+
+    // Variants for individual items (slide in from the right)
+    const itemVariants = {
+        hidden: { opacity: 0, x: 50 }, // Start off-screen (to the right)
+        visible: {
+            opacity: 1,
+            x: 0, // Slide into position
+            transition: { duration: 0.6, ease: 'easeOut' },
+        },
+    };
 
     const courses = [
         {
@@ -34,51 +81,95 @@ const SkillTree = () => {
     const [activeIndex, setActiveIndex] = useState(0);
 
     return (
-        <Grid container spacing={3} justifyContent="center" alignItems="center" sx={{ width: '100%' }}>
-            {courses.map((course, index) => (
-                <Grid
-                    size={{ sx: 12, md: 3 }}
-                    key={index}
-                    onMouseEnter={() => setActiveIndex(index)} // Change active course on hover
-                >
-                    <Box
-                        component={Link}
-                        to={`/courses/${course.slug}`}
-                        sx={{
-                            padding: 1,
-                            height: '92px',
-                            maxWidth: '300px',
-                            width: '100%',
-                            display: 'flex',
-                            flexDirection: 'column',
-                            justifyContent: 'center',
-                            textAlign: 'center',
-                            cursor: 'pointer',
-                            borderRadius: '18px',
-                            transition: 'transform 0.3s, background 0.3s, box-shadow 0.3s',
-                            transform: activeIndex === index ? 'scale(1.09)' : 'scale(1)',
-                            background: `linear-gradient(135deg,${theme.palette.primary.main},${theme.palette.primary.secondary})`,
-                            filter: activeIndex === index ? 'none' : `grayscale(${(index + 1) * 25}%)`,
-                            boxShadow:
-                                activeIndex === index
-                                    ? '0 4px 20px rgba(0, 0, 0, 0.2)'
-                                    : '0 2px 10px rgba(0, 0, 0, 0.1)',
-                            color:'#CACACB',
-                            textDecoration: 'none', // Removes the underline
-                            '&:hover': {
-                                color: activeIndex === index ? `${theme.palette.backgroundCream.card}` : '#CACACB',
-                                textDecoration: 'none', // Ensures no underline on hover
-                            },
-                        }}
-                    >
-                        <Typography variant="h6">{course.title}</Typography>
-                        {activeIndex === index && (
-                            <Typography variant="body2">{course.description}</Typography>
+        <motion.div
+            initial="hidden" // Start with hidden state
+            whileInView="visible" // Animate when in view
+            viewport={{ once: true }} // Trigger animation only once
+            variants={containerVariants} // Use container animation variants
+        >
+            <Grid container spacing={3} alignItems="center">
+                {courses.map((course, index) => (
+                    <Fragment key={index}>
+                        <Grid
+                            size={8}
+                            order={index % 2 === 0 ? (1 + (index / 2) * 6) : (5 + ((index - 1) / 2) * 6)}
+                            onMouseEnter={() => setActiveIndex(index)} // Change active course on hover
+                        >
+                            <motion.div variants={itemVariants}>
+
+                                <CourseCard
+                                    component={Link}
+                                    to={course.slug}
+                                    sx={{
+                                        color: 'text.primary',
+                                        "&:hover": {
+                                            color: 'text.primary',
+                                        },
+                                    }}
+                                >
+                                    <Typography
+                                        variant="h3" // h1 or h2 for large numbers
+                                        sx={{
+                                            fontSize: { xs: '40px', md: '48px' }, // Adjust size for the effect
+                                            fontWeight: '800',
+                                            color: theme.palette.accent.main, // Theme primary color
+                                            zIndex: 1, // Layering control
+                                        }}
+                                    >
+                                        {index + 1}
+                                    </Typography>
+
+                                    <Box
+                                        sx={{
+                                            minWidth: '50%',
+                                            marginLeft: { xs: '4px', md: '16px' },
+                                        }}>
+                                        <CardContent>
+                                            <Typography variant="h5" align="left" gutterBottom>
+                                                {course.title}
+                                            </Typography>
+                                            <Typography variant="body1" align="left" gutterBottom>
+                                                {course.description}
+                                            </Typography>
+                                            <Typography variant="body2" align="left"
+                                                sx={{
+                                                    color: 'accent.main',
+                                                }}
+                                            >
+                                                Learn more
+                                            </Typography>
+                                        </CardContent>
+                                    </Box>
+                                </CourseCard>
+                            </motion.div>
+                        </Grid>
+
+                        <Grid size={4} justifyContent={'center'} order={index % 2 === 0 ? (2 + (index / 2) * 6) : (4 + ((index - 1) / 2) * 6)}>
+                            <motion.div variants={itemVariants}>
+                                <Box
+                                    sx={{
+                                        height: '80px',
+                                        aspectRatio: '1/1',
+                                        backgroundImage: `url(${InstallationImg})`,
+                                        backgroundSize: 'cover',
+                                        backgroundPosition: 'center',
+                                        mx: 'auto',
+                                    }}>
+                                </Box>
+                            </motion.div>
+                        </Grid>
+                        {index < courses.length - 1 && (
+                            <Grid
+                                order={(3 * (index + 1))}
+                                size={12} >
+                                <Arrow />
+                            </Grid>
                         )}
-                    </Box>
-                </Grid>
-            ))}
-        </Grid>
+
+                    </Fragment>
+                ))}
+            </Grid>
+        </motion.div>
     )
 
 }
