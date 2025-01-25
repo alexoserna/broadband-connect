@@ -170,7 +170,6 @@ const CoursePost = () => {
 
       </Box>
 
-
       {/* Overview Section */}
       <Grid size={12}>
         <Container
