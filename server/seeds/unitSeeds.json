@@ -1,0 +1,82 @@
+[
+    {
+        "code": "ICTCBL247",
+        "title": "Install, maintain and modify customer premises communications cabling: ACMA Open Rule",
+        "group": "Group C"
+    },
+    {
+        "code": "ICTCBL322",
+        "title": "Install, test and terminate optical fibre cable on customer premises",
+        "group": "Group C"
+    },
+    {
+        "code": "ICTCBL301",
+        "title": "Install, terminate and certify structured cabling installation",
+        "group": "Group C"
+    },
+    {
+        "code": "ICTCBL303",
+        "title": "Install and terminate coaxial cabling",
+        "group": "Group C"
+    },
+    {
+        "code": "ICTCBL333",
+        "title": "Install aerial cable for communications applications",
+        "group": "Group C"
+    },
+    {
+        "code": "ICTTEN202",
+        "title": "Use hand and power tools",
+        "group": "Core"
+    },
+    {
+        "code": "ICTTEN208",
+        "title": "Use electrical skills when working with telecommunications networks",
+        "group": "Core"
+    },
+    {
+        "code": "ICTTEN315",
+        "title": "Determine and apply technologies within a telecommunications system",
+        "group": "Core"
+    },
+    {
+        "code": "ICTTEN317",
+        "title": "Locate, identify and rectify telecommunications network faults",
+        "group": "Core"
+    },
+    {
+        "code": "ICTWHS204",
+        "title": "Follow work health and safety and environmental policy and procedures",
+        "group": "Core"
+    },
+    {
+        "code": "ICTWOR308",
+        "title": "Provide customer service to telecommunications customers",
+        "group": "Core"
+    },
+    {
+        "code": "ICTCBL329",
+        "title": "Install underground cable for communications applications",
+        "group": "Group A"
+    },
+    {
+        "code": "ICTCBL253",
+        "title": "Construct underground telecommunications infrastructure",
+        "group": "Group A"
+    },
+    {
+        "code": "ICTCBL334",
+        "title": "Install underground enclosures and conduit",
+        "group": "Group A"
+    },
+    {
+        "code": "ICTCBL330",
+        "title": "Splice and terminate optical fibre cable for telecommunications projects",
+        "group": "Group F"
+    },
+    {
+        "code": "ICTTEN318",
+        "title": "Inspect, clean and handle optical fibre cable and connectors",
+        "group": "Group F"
+    }
+]

@@ -1,69 +1,22 @@
 const { Schema, model } = require("mongoose");
 
 const courseSchema = new Schema({
-    // Basic Details
     title: { type: String, required: true },
-    description: { type: String, required: true },
-    category: { type: String }, // E.g., "Telecommunications"
-    // Slug
-    slug: { type: String, unique: true },
-    
-    cost: {
-        total: { type: Number, required: true }, // Total cost
-        perModule: { type: Number }, // Optional breakdown
-    },
+    slug: { type: String, required: true, unique: true },
+    tagline: { type: String, required: true },
+    courseIcon: { type: String, required: true },
+    courseDescription: { type: String, required: true },
+    courseInformation: { type: String, required: true },
+    cost: { type: Number, required: true },
     duration: {
-        months: { type: Number, default: null }, // Course duration in months
-        hours: { type: Number, default: null }, // Optional: Total hours
+      hours: { type: Number },
+      months: { type: Number }
     },
-
-    // Qualification Information
-    qualificationDescription: { type: String, required: true },
-    careerOutcomes: [{ type: String }], // Array of strings for career roles
-
-    // Course Structure
-    structure: {
-        totalUnits: { type: Number, required: true },
-        coreUnits: [
-            {
-                code: { type: String, required: true },
-                title: { type: String, required: true },
-            },
-        ],
-        electiveUnits: [
-            {
-                code: { type: String, required: true },
-                title: { type: String, required: true },
-                group: { type: String }, // E.g., "Group C: Telecommunications Cabling"
-            },
-        ],
-    },
-
-    // Learning Outcomes
-    learningOutcomes: [{ type: String }],
-
-    // Delivery and Assessment
-    deliveryMode: { type: String }, // E.g., "Workplace training"
-    assessmentMethods: [{ type: String }], // E.g., "Practical tasks", "Projects"
-
-    // Skill Tree and Modules
-    skillTree: [
-        {
-            skillName: { type: String },
-            price: { type: Number },
-            description: { type: String },
-            outcomes: [
-                {
-                    code: { type: String },
-                    title: { type: String },
-                },
-            ],
-        },
-    ],
-
-    // Other Metadata
-    createdAt: { type: Date, default: Date.now },
-    updatedAt: { type: Date, default: Date.now },
+    assessmentMethods: { type: [String], required: true },
+    learningOutcomes: { type: [String], required: true },
+    prerequisites: { type: [String] },
+    focus: { type: String },
+    images: { type: [String], default: [] } // Array of image source URLs
 });
 
 const Course = model("Course", courseSchema);

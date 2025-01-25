@@ -1,0 +1,63 @@
+[
+    {
+      "title": "Cert III in Telecommunications Technology",
+      "slug": "certification-iii-in-telecommunications-technology",
+      "tagline": "Step into the world of advanced telecommunications.",
+      "courseIcon": "/icons/cert3-telecom.svg",
+      "description": "The Certificate III in Telecommunications Technology is designed for telecommunications technology operators involved in installation, fault-finding, and testing of telecommunications systems and equipment. This qualification prepares individuals to assess installation needs, perform installations, and troubleshoot networks across various telecommunications environments.",
+      "category": "Telecommunications",
+      "cost": 4000,
+      "duration": { "months": 24 },
+      "deliveryMode": "Hands-on training conducted either at the student’s workplace or at Broadband Connect’s training facility, providing practical, real-world experience.", 
+      "careerOutcomes": [
+        "Customer premises cabling networks",
+        "Digital reception and optical networks",
+        "Radio communications",
+        "Telecommunications networking and rigging"
+      ],
+      "learningOutcomes": [
+        "Install and maintain telecommunications cabling.",
+        "Troubleshoot and resolve network faults.",
+        "Ensure workplace and environmental safety.",
+        "Provide customer service and technical support.",
+        "Construct and install infrastructure."
+      ],
+      "structure": {
+        "totalUnits": 16,
+        "coreUnits": [], 
+        "electiveUnits": [] 
+      },
+      "skillTree": [] ,
+      "images": []
+    },
+    {
+      "title": "ICT30419 Certificate III in Telecommunications Network Build and Operation",
+      "slug": "ict30419-certification-iii-network-build",
+      "tagline": "Your gateway to building modern telecommunications networks.",
+      "courseIcon": "/icons/cert3-network-build.svg",
+      "description": "The ICT30419 Certificate III in Telecommunications Network Build and Operation focuses on the essential skills required to build, operate, and maintain modern telecommunications networks.",
+      "category": "Telecommunications",
+      "cost": 4000,
+      "duration": { "months": 24 },
+      "deliveryMode": "Interactive face-to-face training at partnered venues combined with online resources to enhance learning flexibility.",
+      "careerOutcomes": [
+        "Telecommunications network technicians",
+        "Cabling installers for underground and aerial infrastructure",
+        "Network fault diagnostic specialists",
+        "Copper and optical fibre cabling experts"
+      ],
+      "learningOutcomes": [
+        "Build and maintain modern telecommunications networks.",
+        "Operate fibre and hybrid networks effectively.",
+        "Implement safe and compliant work practices."
+      ],
+      "structure": {
+        "totalUnits": 14,
+        "coreUnits": [], 
+        "electiveUnits": [] 
+      },
+      "skillTree": [],
+      "images": []
+    }
+  ]
+  

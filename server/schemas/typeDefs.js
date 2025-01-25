@@ -1,102 +1,124 @@
 const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
-   type Course {
-    id: ID!
+   type Unit {
+    _id: ID!
+    code: String!
     title: String!
-    description: String!
-    category: String
-    slug: String
-    cost: Cost
-    duration: Duration
-    qualificationDescription: String!
-    careerOutcomes: [String]
-    structure: Structure
-    learningOutcomes: [String]
-    deliveryMode: String
-    assessmentMethods: [String]
-    skillTree: [Skill]
+    group: String
   }
 
-  type Cost {
-    total: Float!
-    perModule: Float
+  type Course {
+    _id: ID!
+    title: String!
+    slug: String!
+    tagline: String!
+    courseIcon: String
+    courseDescription: String!
+    courseInformation: String!
+    coreUnits: [Unit]
+    electiveUnits: [Unit]
+    learningOutcomes: [String]
+    nbnSkills: [String]
+    images: [String]
+    cost: Float
+  }
+
+  type Certification {
+    _id: ID!
+    title: String!
+    slug: String!
+    tagline: String!
+    courseIcon: String
+    description: String!
+    category: String!
+    cost: Float
+    duration: Duration
+    deliveryMode: [String]
+    careerOutcomes: [String]
+    learningOutcomes: [String]
+    structure: Structure
+    skillTree: [Course]
   }
 
   type Duration {
-    months: Int!
+    months: Int
     hours: Int
   }
 
   type Structure {
-    totalUnits: Int!
+    totalUnits: Int
     coreUnits: [Unit]
     electiveUnits: [Unit]
   }
 
-  type Unit {
-    code: String!
-    title: String!
-    group: String
-  }
-
-  type Skill {
-    skillName: String
-    price: Float
-    description: String
-    outcomes: [Unit]
-  }
-
   type Query {
-    getCourses: [Course]!
-    getCourseById(id: ID!): Course
-    getCourseBySlug(slug: String) : Course
+    getAllUnits: [Unit]
+    getUnitsByGroup(group: String!): [Unit]
+    getAllCourses: [Course]
+    getAllCertifications: [Certification]
+    getCourseBySlug(slug: String!): Course
+    getCertificationBySlug(slug: String!): Certification
+    searchCertifications(searchTerm: String!): [Certification]
+    searchUnits(searchTerm: String!): [Unit]
+    searchCourses(searchTerm: String!): [Course]
+    siteWideSearch(searchTerm: String!): SiteWideSearchResult
+  }
+
+  type SiteWideSearchResult {
+    courses: [Course]
+    certifications: [Certification]
+    units: [Unit]
   }
 
   type Mutation {
+    createUnit(code: String!, title: String!, group: String): Unit
+    updateUnit(id: ID!, code: String, title: String, group: String): Unit
+    deleteUnit(id: ID!): Unit
+
     createCourse(
       title: String!
-      description: String!
-      category: String
-      cost: CostInput
-      duration: DurationInput
-      qualificationDescription: String!
-      careerOutcomes: [String]
-      structure: StructureInput
+      slug: String!
+      tagline: String!
+      courseIcon: String
+      courseDescription: String!
+      courseInformation: String!
+      cost: Float
       learningOutcomes: [String]
-      deliveryMode: String
-      assessmentMethods: [String]
-      skillTree: [SkillInput]
+      nbnSkills: [String]
+      images: [String]
     ): Course
-  }
+    updateCourse(id: ID!, title: String, cost: Float): Course
+    deleteCourse(id: ID!): Course
 
-  input CostInput {
-    total: Float!
-    perModule: Float
+    createCertification(
+      title: String!
+      slug: String!
+      tagline: String!
+      courseIcon: String
+      description: String!
+      category: String!
+      cost: Float
+      duration: DurationInput
+      deliveryMode: [String]
+      careerOutcomes: [String]
+      learningOutcomes: [String]
+      structure: StructureInput
+      skillTree: [ID]
+    ): Certification
+    updateCertification(id: ID!, title: String, cost: Float): Certification
+    deleteCertification(id: ID!): Certification
   }
 
   input DurationInput {
-    months: Int!
+    months: Int
     hours: Int
   }
 
   input StructureInput {
-    totalUnits: Int!
-    coreUnits: [UnitInput]
-    electiveUnits: [UnitInput]
-  }
-
-  input UnitInput {
-    code: String!
-    title: String!
-    group: String
-  }
-
-  input SkillInput {
-    skillName: String
-    price: Float
-    description: String
-    outcomes: [UnitInput]
+    totalUnits: Int
+    coreUnits: [ID]
+    electiveUnits: [ID]
   }
 `;
 
