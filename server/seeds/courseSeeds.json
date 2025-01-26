@@ -3,8 +3,8 @@
     "title": "Open Cabler Registration",
     "slug": "open-cabler-registration",
     "tagline": "Master cabling compliance and safety standards.",
-    "courseIcon": "/icons/cert3-telecom.svg",
-    "courseDescription": "The Open Cabler Registration course provides essential training for working safely and effectively with customer premises cabling installations. Covering both ACMA Restricted and Open Rules, this course equips learners with the practical skills and technical knowledge needed to comply with industry standards and licensing requirements.",
+    "courseIcon": "/icons/open-cabler.svg",
+    "description": "The Open Cabler Registration course provides essential training for working safely and effectively with customer premises cabling installations. Covering both ACMA Restricted and Open Rules, this course equips learners with the practical skills and technical knowledge needed to comply with industry standards and licensing requirements.",
     "courseInformation": "This course prepares participants for the ACMA Open Cabler Registration, focusing on compliant and secure installation techniques for customer premises cabling. Through hands-on exercises and real-world scenarios, students develop the skills needed to handle all aspects of cabling within a customer environment.",
     "coreUnits": [
       "ICTWHS204",
@@ -30,8 +30,8 @@
     "title": "Optical Fibre Cabling",
     "slug": "optical-fibre-cabling",
     "tagline": "Practical training for optical fibre installation and maintenance.",
-    "courseIcon": "/icons/cert3-telecom.svg",
-    "courseDescription": "This course is designed to meet the requirements for nbn™ Skill 33 & 9, providing immersive, practical training in optical fibre installation, testing, and maintenance. Students work directly with industry-grade tools and equipment, ensuring they are ready for real-world telecommunications roles that require advanced fibre optic skills.",
+    "courseIcon": "/icons/optical-fibre.svg",
+    "description": "This course is designed to meet the requirements for nbn™ Skill 33 & 9, providing immersive, practical training in optical fibre installation, testing, and maintenance. Students work directly with industry-grade tools and equipment, ensuring they are ready for real-world telecommunications roles that require advanced fibre optic skills.",
     "courseInformation": "The Optical Fibre Cabling course gives learners in-depth, practical knowledge to work confidently in optical telecommunications environments. From splicing to compliance testing, this course covers essential skills that are immediately applicable in the field.",
     "coreUnits": [
       "ICTCBL322",
@@ -58,8 +58,8 @@
     "title": "Pit & Pipe Installation",
     "slug": "pit-and-pipe-installation",
     "tagline": "Hands-on training for underground cable installation.",
-    "courseIcon": "/icons/cert3-telecom.svg",
-    "courseDescription": "This Pit & Pipe Installation course provides intensive, hands-on training in underground cable installation and infrastructure construction for telecommunications, aligned with the ACMA Underground Endorsement. Students gain direct experience with industry-standard tools and techniques, preparing them for practical applications in the field.",
+    "courseIcon": "/icons/pit-n-pipe.svg",
+    "description": "This Pit & Pipe Installation course provides intensive, hands-on training in underground cable installation and infrastructure construction for telecommunications, aligned with the ACMA Underground Endorsement. Students gain direct experience with industry-standard tools and techniques, preparing them for practical applications in the field.",
     "courseInformation": "The Pit & Pipe Installation course immerses learners in the essential skills and knowledge required for underground telecommunications infrastructure. Through real-world, hands-on training, participants will master safe and effective installation techniques to ensure high-quality, compliant work in diverse environments.",
     "coreUnits": [
       "ICTCBL329",
@@ -83,8 +83,8 @@
     "title": "Fibre to the Curb (FTTC) Technician",
     "slug": "fttc-technician",
     "tagline": "Master practical techniques for FTTC installations and troubleshooting.",
-    "courseIcon": "/icons/cert3-telecom.svg",
-    "courseDescription": "The Fibre to the Curb (FTTC) Technician course delivers practical training in FTTC installations, troubleshooting, and maintenance, providing technicians with the expertise to ensure network reliability. This course emphasizes hands-on skills to master cable installations, joint enclosures, and systematic fault-finding techniques, preparing students for effective fieldwork in telecommunications.",
+    "courseIcon": "/icons/fttc.svg",
+    "description": "The Fibre to the Curb (FTTC) Technician course delivers practical training in FTTC installations, troubleshooting, and maintenance, providing technicians with the expertise to ensure network reliability. This course emphasizes hands-on skills to master cable installations, joint enclosures, and systematic fault-finding techniques, preparing students for effective fieldwork in telecommunications.",
     "courseInformation": "The FTTC Technician course covers essential FTTC network skills, focusing on practical techniques and diagnostic tools. Training encompasses the preparation, testing, and maintenance of FTTC systems to uphold high network performance standards.",
     "coreUnits": [
       "ICTCBL254",
@@ -113,8 +113,8 @@
     "title": "FTTC Skill: Copper Jointing – Basic",
     "slug": "fttc-skill-copper-jointing-basic",
     "tagline": "Learn fundamental techniques for copper cable jointing.",
-    "courseIcon": "/icons/cert3-telecom.svg",
-    "courseDescription": "Gain fundamental skills for preparing and joining metallic conductor cables in access networks. This module emphasizes practical techniques to create secure and compliant cable joints that ensure robust network performance.",
+    "courseIcon": "/icons/copper-jointing.svg",
+    "description": "Gain fundamental skills for preparing and joining metallic conductor cables in access networks. This module emphasizes practical techniques to create secure and compliant cable joints that ensure robust network performance.",
     "courseInformation": "Techniques for preparing metallic conductor cables for jointing. Creating reliable, durable cable joints with minimal signal loss. Adhering to ACMA and nbn™ requirements for copper cabling.",
     "coreUnits": [
       "ICTCBL254"
@@ -136,8 +136,8 @@
     "title": "FTTC Skill: Fault Finding Access Network",
     "slug": "fttc-skill-fault-finding-access-network",
     "tagline": "Master troubleshooting techniques for access networks.",
-    "courseIcon": "/icons/cert3-telecom.svg",
-    "courseDescription": "Develop advanced troubleshooting skills to identify, analyze, and resolve recurring faults in telecommunications networks. This module focuses on diagnostic methodologies and the use of industry-standard tools to restore and enhance network reliability.",
+    "courseIcon": "/icons/fault-finding.svg",
+    "description": "Develop advanced troubleshooting skills to identify, analyze, and resolve recurring faults in telecommunications networks. This module focuses on diagnostic methodologies and the use of industry-standard tools to restore and enhance network reliability.",
     "courseInformation": "Comprehensive fault analysis and root cause identification. Systematic use of diagnostic tools for efficient fault resolution. Implementing preventive measures to minimize future network failures.",
     "coreUnits": [
       "ICTTEN313"
@@ -159,8 +159,8 @@
     "title": "FTTC Skill: Jumper Metallic Conductor Cable",
     "slug": "fttc-skill-jumper-metallic-cable",
     "tagline": "Learn the techniques of jumpering metallic conductor cables.",
-    "courseIcon": "/icons/cert3-telecom.svg",
-    "courseDescription": "Master the techniques for managing and jumpering metallic conductor cables in FTTC environments. Learn practical methods for cable identification, termination, and record-keeping to ensure compliance and optimal network performance.",
+    "courseIcon": "/icons/jumper-cable.svg",
+    "description": "Master the techniques for managing and jumpering metallic conductor cables in FTTC environments. Learn practical methods for cable identification, termination, and record-keeping to ensure compliance and optimal network performance.",
     "courseInformation": "Accurate cable identification and color coding for effective jumpering. Best practices for maintaining network integrity through precise connections. Reading network plans and documenting cable installations and updates.",
     "coreUnits": [
       "ICTCBL320"
@@ -182,8 +182,8 @@
     "title": "Optical Fibre Jointing and Splicing",
     "slug": "optical-fibre-jointing-and-splicing",
     "tagline": "Master optical fibre splicing and jointing techniques.",
-    "courseIcon": "/icons/cert3-telecom.svg",
-    "courseDescription": "This Optical Fibre Jointing and Splicing course provides hands-on training in splicing and terminating optical fibre cables for telecommunications projects, aligning with nbn™ Skill 13 standards. Through practical exercises, students gain the essential skills needed to prepare, splice, and test optical fibres using industry-grade tools and techniques.",
+    "courseIcon": "/icons/fibre-jointing.svg",
+    "description": "This Optical Fibre Jointing and Splicing course provides hands-on training in splicing and terminating optical fibre cables for telecommunications projects, aligning with nbn™ Skill 13 standards. Through practical exercises, students gain the essential skills needed to prepare, splice, and test optical fibres using industry-grade tools and techniques.",
     "courseInformation": "The Optical Fibre Jointing and Splicing course immerses learners in the techniques and standards required for successful fibre jointing in telecommunications. With a focus on field-ready applications, this course covers every step from fibre preparation to transmission testing, preparing students for the demands of modern fibre optic installations.",
     "coreUnits": [
       "ICTCBL330"
@@ -208,8 +208,8 @@
     "title": "Structured Cabling",
     "slug": "structured-cabling",
     "tagline": "Learn to install, terminate, and certify structured cabling systems.",
-    "courseIcon": "/icons/cert3-telecom.svg",
-    "courseDescription": "This Structured Cabling course offers intensive, hands-on training in the installation, termination, and certification of structured cabling systems. Aligned with industry standards, this course prepares learners to work confidently in telecommunications environments, ensuring high-quality installations using professional-grade tools and techniques.",
+    "courseIcon": "/icons/structured-cabling.svg",
+    "description": "This Structured Cabling course offers intensive, hands-on training in the installation, termination, and certification of structured cabling systems. Aligned with industry standards, this course prepares learners to work confidently in telecommunications environments, ensuring high-quality installations using professional-grade tools and techniques.",
     "courseInformation": "The Structured Cabling course immerses learners in the essentials of telecommunications installations, combining theory with practical exercises to ensure competency in real-world settings. This course covers key aspects of structured cabling for integrated voice and data systems, with a strong focus on quality and reliability.",
     "coreUnits": ["ICTCBL301"],
     "learningOutcomes": [
@@ -227,8 +227,8 @@
     "title": "Coaxial Cabling",
     "slug": "coaxial-cabling",
     "tagline": "Learn hands-on coaxial cabling installation techniques.",
-    "courseIcon": "/icons/cert3-telecom.svg",
-    "courseDescription": "This Coaxial Cabling course provides practical, hands-on training in installing and terminating coaxial cables within customer premises. Designed to prepare learners for real-world applications, this course ensures participants are equipped with essential skills to meet industry standards using professional-grade tools and techniques.",
+    "courseIcon": "/icons/coaxial-cabling.svg",
+    "description": "This Coaxial Cabling course provides practical, hands-on training in installing and terminating coaxial cables within customer premises. Designed to prepare learners for real-world applications, this course ensures participants are equipped with essential skills to meet industry standards using professional-grade tools and techniques.",
     "courseInformation": "The Coaxial Cabling course immerses students in the foundational skills required for effective coaxial cable installation and termination in telecommunications. With a focus on both theory and applied practice, this course readies learners for immediate work in the field.",
     "coreUnits": [
       "ICTCBL303"
@@ -249,8 +249,8 @@
     "title": "Aerial Cabling (ACMA Aerial Endorsement)",
     "slug": "aerial-cabling",
     "tagline": "Develop practical skills for aerial cable installation.",
-    "courseIcon": "/icons/cert3-telecom.svg",
-    "courseDescription": "This Aerial Cabling course, designed for the ACMA Aerial Endorsement, delivers immersive, practical training for installing and supporting aerial communication cables. Through direct use of industry-standard tools, learners build the essential skills needed to construct reliable aerial cable supports and manage installations in diverse environments.",
+    "courseIcon": "/icons/aerial-cabling.svg",
+    "description": "This Aerial Cabling course, designed for the ACMA Aerial Endorsement, delivers immersive, practical training for installing and supporting aerial communication cables. Through direct use of industry-standard tools, learners build the essential skills needed to construct reliable aerial cable supports and manage installations in diverse environments.",
     "courseInformation": "The Aerial Cabling course equips learners with practical, field-ready skills for aerial cable installation and support in telecommunications applications. Covering everything from site preparation to cable security, the course provides a hands-on approach to mastering aerial cabling techniques.",
     "coreUnits": [
       "ICTCBL333",
@@ -274,8 +274,8 @@
     "title": "Optical Fibre Hygiene",
     "slug": "optical-fibre-hygiene",
     "tagline": "Ensure cleanliness and safety in fibre optic environments.",
-    "courseIcon": "/icons/cert3-telecom.svg",
-    "courseDescription": "The Optical Fibre Hygiene course offers hands-on training in the essential practices of inspecting, cleaning, and handling optical fibre cables and connectors, in line with nbn™ Skill 9 requirements. This course prepares students to uphold the highest standards of fibre hygiene and safety, using industry-approved tools and methods to ensure optimal network performance.",
+    "courseIcon": "/icons/fibre-hygiene.svg",
+    "description": "The Optical Fibre Hygiene course offers hands-on training in the essential practices of inspecting, cleaning, and handling optical fibre cables and connectors, in line with nbn™ Skill 9 requirements. This course prepares students to uphold the highest standards of fibre hygiene and safety, using industry-approved tools and methods to ensure optimal network performance.",
     "courseInformation": "The Optical Fibre Hygiene course equips learners with fundamental skills for maintaining cleanliness and safety in fibre optic environments. Through practical exercises and specialized equipment, students develop the expertise needed to ensure reliable fibre installations and connections.",
     "coreUnits": [
       "ICTTEN318"

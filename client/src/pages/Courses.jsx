@@ -1,15 +1,17 @@
 
 import { gql, useQuery } from '@apollo/client';
-import { Box, Typography, Container, Paper, Button } from '@mui/material';
-import SchoolIcon from "@mui/icons-material/School";
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-import Grid from '@mui/material/Grid2';
-import { QUERY_COURSES, QUERY_CERTIFICATIONS } from '../utils/queries.js';
-import { Link } from 'react-router-dom';
-import { alpha, useTheme } from '@mui/material/styles';
 import { useState } from 'react';
+import { QUERY_COURSES, QUERY_CERTIFICATIONS } from '../utils/queries.js';
+
+import { Box, Typography, Container, Paper, Button } from '@mui/material';
+import Grid from '@mui/material/Grid2';
+import { alpha, useTheme } from '@mui/material/styles';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Parallax, ParallaxProvider } from 'react-scroll-parallax';
+
+import SchoolIcon from "@mui/icons-material/School";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
 import SearchBar from '../components/SearchBar.jsx';
 import SkillTree from '../components/SkillTree.jsx';
@@ -27,9 +29,22 @@ const Courses = () => {
 
   // Handle loading and error states
   if (loadingCourses || loadingCertifications) return <p>Loading...</p>;
-  if (errorCourses || errorCertifications)
+  if (errorCourses || errorCertifications) {
+    console.log('got to second if');
     return <p>Error: {errorCourses?.message || errorCertifications?.message}</p>;
+  }
 
+  const combinedData = [
+    ...(dataCertifications?.getAllCertifications || []).map(certification => ({
+      ...certification,
+      type: 'certification' // Add type to each certification
+    })),
+    ...(dataCourses?.getAllCourses || []).map(course => ({
+      ...course,
+      type: 'course' // Add type to each course
+    }))
+  ];
+  
   const containerVariants = {
     hidden: { opacity: 0, y: 50 }, // Initial state
     visible: {
@@ -125,7 +140,7 @@ const Courses = () => {
               style={{ zIndex: 4, width: '100%', maxWidth: '600px' }}
             >
 
-              <SearchBar courses={data.getCourses} />
+              <SearchBar courses={combinedData} />
 
             </motion.div>
 
@@ -223,7 +238,7 @@ const Courses = () => {
                       </Typography>
                       <Button
                         component={Link}
-                        to='/courses/certifcation-iii-in-telecommunications-technology'
+                        to='/courses/certification/certification-iii-in-telecommunications-technology'
                         variant="contained"
                         color="primary"
                         sx={{
@@ -317,7 +332,7 @@ const Courses = () => {
               </Grid>
 
               {/* Grid */}
-              {data.getCourses.map((course, index) => (
+              {combinedData.map((course, index) => (
                 <Grid key={index} size={{ xs: 12, sm: 6, md: 4 }}>
                   <motion.div
                     initial="hidden" // Start with hidden state
@@ -330,6 +345,7 @@ const Courses = () => {
                         slug={course.slug}
                         title={course.title}
                         description={course.description}
+                        type={course.type}
                       />
                     </Container>
                   </motion.div>

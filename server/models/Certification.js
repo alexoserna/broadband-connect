@@ -12,7 +12,7 @@ const certificationSchema = new Schema({
       months: { type: Number }
     },
     deliveryMode: { type: String, required: true }, // e.g., "hands-on"
-    assessmentMethods: { type: [String], required: true },
+    assessmentMethods: { type: [String], default: []},
     learningOutcomes: { type: [String], required: true },
     careerOutcomes: { type: [String], required: true },
     structure: {

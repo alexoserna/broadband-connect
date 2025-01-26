@@ -1,10 +1,10 @@
-import { Box, Typography, Container, Card, CardContent, CardActions, Chip, Button } from "@mui/material";
+import { Box, Typography, Button } from "@mui/material";
 import { Link } from "react-router-dom";
 import { useTheme } from "@emotion/react";
 import { alpha } from "@mui/material";
 import { motion } from "framer-motion";
 
-const CourseDisplay = ({ slug, title, description }) => {
+const CourseDisplay = ({ slug, title, description, type }) => {
 
     const theme = useTheme();
 
@@ -24,7 +24,7 @@ const CourseDisplay = ({ slug, title, description }) => {
                     justifyContent: 'center',
                     boxShadow: 1,
                     padding: 3,
-                    my: {xs: 1, md: 3},
+                    my: { xs: 1, md: 3 },
                     minHeight: '330px',
                     transition: "transform 0.2s, box-shadow 0.2s",
                     "&:hover": {
@@ -50,7 +50,11 @@ const CourseDisplay = ({ slug, title, description }) => {
                 <Button
                     color="primary"
                     component={Link}
-                    to={slug}
+                    to={
+                        type === 'certification'
+                            ? `/courses/certification/${slug}` // Route for certifications
+                            : `/courses/${slug}` // Route for courses
+                    }
                     sx={{
                         marginTop: 'auto',
                         borderRadius: '16px',
@@ -58,7 +62,7 @@ const CourseDisplay = ({ slug, title, description }) => {
                         color: "#FFF",
                         "&:hover": {
                             backgroundColor: "#A1402B",
-                            color: '#FFF', 
+                            color: '#FFF',
                         },
                     }}>
                     Learn More

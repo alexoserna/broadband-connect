@@ -14,7 +14,7 @@ const typeDefs = gql`
     slug: String!
     tagline: String!
     courseIcon: String
-    courseDescription: String!
+    description: String!
     courseInformation: String!
     coreUnits: [Unit]
     learningOutcomes: [String]
@@ -33,11 +33,13 @@ const typeDefs = gql`
     category: String!
     cost: Float
     duration: Duration
-    deliveryMode: [String]
+    deliveryMode: String
     careerOutcomes: [String]
     learningOutcomes: [String]
     structure: Structure
     skillTree: [Course]
+    images: [String]
+    assessmentMethods: [String]
   }
 
   type Duration {
@@ -80,7 +82,7 @@ const typeDefs = gql`
       slug: String!
       tagline: String!
       courseIcon: String
-      courseDescription: String!
+      description: String!
       courseInformation: String!
       cost: Float
       learningOutcomes: [String]
@@ -101,6 +103,7 @@ const typeDefs = gql`
       duration: DurationInput
       deliveryMode: [String]
       careerOutcomes: [String]
+      assessmentMethods: [String]
       learningOutcomes: [String]
       structure: StructureInput
       skillTree: [ID]

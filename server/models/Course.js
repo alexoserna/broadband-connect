@@ -5,19 +5,15 @@ const courseSchema = new Schema({
     slug: { type: String, required: true, unique: true },
     tagline: { type: String, required: true },
     courseIcon: { type: String, required: true },
-    courseDescription: { type: String, required: true },
+    description: { type: String, required: true },
     courseInformation: { type: String, required: true },
     cost: { type: Number, required: true },
-    duration: {
-      hours: { type: Number },
-      months: { type: Number }
-    },
     coreUnits: [{ type: Schema.Types.ObjectId, ref: 'Unit' }],
-    assessmentMethods: { type: [String], required: true },
     learningOutcomes: { type: [String], required: true },
     prerequisites: { type: [String] },
     focus: { type: String },
-    images: { type: [String], default: [] } // Array of image source URLs
+    images: { type: [String], default: [] },
+    nbnSkills: { type: [String], default: [] } // Array of image source URLs
 });
 
 const Course = model("Course", courseSchema);

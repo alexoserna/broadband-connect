@@ -22,7 +22,7 @@ const resolvers = {
       return await Course.find({
         $or: [
           { title: { $regex: searchTerm, $options: "i" } },
-          { courseDescription: { $regex: searchTerm, $options: "i" } }
+          { description: { $regex: searchTerm, $options: "i" } }
         ]
       });
     },

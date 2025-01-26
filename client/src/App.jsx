@@ -4,7 +4,7 @@ import Home from './pages/Home';
 import Courses from './pages/Courses';
 import CoursePost from './pages/CoursePage';
 import Careers from './pages/Careers';
-import Contact from './pages/Contact';
+import ContactPage from './pages/Contact';
 import About from './pages/About';
 import Footer from './components/Footer';
 import RPL from './pages/RPL';
@@ -33,7 +33,7 @@ function App() {
         <Route path='courses/certification/:slug' element={<CertificationPage />} />
         <Route path="courses/recognized-prior-learning" element={<RPL />} />
         <Route path="careers" element={<Careers />} />
-        <Route path="contact" element={<Contact />} />
+        <Route path="contact" element={<ContactPage />} />
         <Route path="about" element={<About />} />
       </Routes>
       <Footer />

@@ -19,8 +19,10 @@ export const QUERY_COURSES = gql`
     _id
     title
     slug
-    courseDescription
+    tagline
+    description
     courseInformation
+    cost
     coreUnits {
       _id
       code
@@ -40,6 +42,7 @@ query GetAllCertifications {
     _id
     title
     slug
+    images
     tagline
     courseIcon
     description
@@ -47,11 +50,11 @@ query GetAllCertifications {
     cost
     duration {
       months
-      hours
     }
     deliveryMode
-    careerOutcomes
+    assessmentMethods
     learningOutcomes
+    careerOutcomes
     structure {
       totalUnits
       coreUnits {
@@ -77,38 +80,22 @@ query GetAllCertifications {
 export const QUERY_COURSE = gql`
     query getOneCourse($id: ID!) {
         getCourseById(id: $id) {
-            slug
-            assessmentMethods
-            careerOutcomes
-            category
-            cost {
-            perModule
-            total
-            }
-            deliveryMode
-            description
-            duration {
-            hours
-            months
-            }
-            learningOutcomes
-            qualificationDescription
-            skillTree {
-            description
-            outcomes {
-                code
-                group
-                title
-            }
-            price
-            skillName
-            }
-            coreUnits {
-                code
-                group
-                title
-            }
+            _id
+          title
+          slug
+          tagline
+          description
+          courseInformation
+          cost
+          coreUnits {
+            _id
+            code
             title
+          }
+          learningOutcomes
+          nbnSkills
+          images
+          cost
         }
     }
 `;
@@ -119,14 +106,11 @@ export const QUERY_COURSE_BY_SLUG = gql`
     _id
     title
     slug
-    courseDescription
+    tagline
+    description
     courseInformation
+    cost
     coreUnits {
-      _id
-      code
-      title
-    }
-    electiveUnits {
       _id
       code
       title
@@ -140,12 +124,13 @@ export const QUERY_COURSE_BY_SLUG = gql`
 
 `;
 
-export const QUERY_CERTIFICAITON_BY_SLUG =gql`
+export const QUERY_CERTIFICATION_BY_SLUG = gql`
 query GetCertificationBySlug($slug: String!) {
   getCertificationBySlug(slug: $slug) {
     _id
     title
     slug
+    images
     tagline
     courseIcon
     description
@@ -158,6 +143,7 @@ query GetCertificationBySlug($slug: String!) {
     deliveryMode
     careerOutcomes
     learningOutcomes
+    assessmentMethods
     structure {
       totalUnits
       coreUnits {
@@ -184,12 +170,14 @@ export const QUERY_SITE_WIDE_SEARCH = gql`
   query SiteWideSearch($searchTerm: String!) {
     searchCourses(searchTerm: $searchTerm) {
       _id
+      images
       title
       slug
-      courseDescription
+      description
     }
     searchCertifications(searchTerm: $searchTerm) {
       _id
+      images
       title
       slug
       tagline
@@ -205,10 +193,10 @@ export const QUERY_SITE_WIDE_SEARCH = gql`
 `;
 
 export default {
-    QUERY_UNITS,
-    QUERY_COURSES,
-    QUERY_CERTIFICATIONS,
-    QUERY_COURSE,
-    QUERY_COURSE_BY_SLUG,
-    QUERY_CERTIFICAITON_BY_SLUG,
+  QUERY_UNITS,
+  QUERY_COURSES,
+  QUERY_CERTIFICATIONS,
+  QUERY_COURSE,
+  QUERY_COURSE_BY_SLUG,
+  QUERY_CERTIFICATION_BY_SLUG,
 };

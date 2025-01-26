@@ -27,7 +27,9 @@ import { alpha, useTheme } from '@mui/material/styles';
 import { AccessTime, AttachMoney, Tag, CheckCircle, Book, AssignmentOutlined } from '@mui/icons-material';
 import Grid from '@mui/material/Grid2';
 
-const CoursePost = () => {
+const CoursePage = () => {
+
+  console.log('in course page');
 
   const hexToRgba = (hex, alpha) => {
     // Remove the '#' if present
@@ -75,7 +77,7 @@ const CoursePost = () => {
     duration,
     qualificationDescription,
     careerOutcomes,
-    structure,
+    coreUnits,
     learningOutcomes,
     deliveryMode,
     assessmentMethods,
@@ -218,12 +220,6 @@ const CoursePost = () => {
                     width: { xs: '152px', md: '160px' },
                     marginLeft: { xs: '4px', md: '16px' },
                   }}>
-                  <CardContent>
-                    <Typography variant="h5" fontWeight="bold" align="left">
-                      Structure
-                    </Typography>
-                    <Typography align="left">Total Units: {structure.totalUnits}</Typography>
-                  </CardContent>
                 </Box>
               </Grid>
 
@@ -259,19 +255,6 @@ const CoursePost = () => {
 
                 <AccessTime sx={{ fontSize: { xs: '40px', md: '48px' }, color: "accent.main" }} />
 
-                <CardContent>
-                  <Box
-                    sx={{
-                      minWidth: '50%',
-                      width: { xs: '152px', md: '160px' },
-                      marginLeft: { xs: '4px', md: '16px' },
-                    }}>
-                    <Typography variant="h6" fontWeight="bold" align="left">
-                      Duration
-                    </Typography>
-                    <Typography align='left'>{duration.months} months</Typography>
-                  </Box>
-                </CardContent>
               </Grid>
 
             </Grid>
@@ -292,13 +275,7 @@ const CoursePost = () => {
         <Typography variant="h4" fontWeight="bold" sx={{ mb: 4 }}>
           Career Outcomes
         </Typography>
-        <List>
-          {careerOutcomes.map((outcome, index) => (
-            <ListItem key={index}>
-              <ListItemText primary={outcome} />
-            </ListItem>
-          ))}
-        </List>
+        
       </Container>
 
       {/* Course Structure Section */}
@@ -323,9 +300,8 @@ const CoursePost = () => {
           <Tab label="Core Units" icon={<CheckCircle />} />
           <Tab label="Elective Units" icon={<Book />} />
         </Tabs>
-        {tabValue === 0 && (
           <List sx={{ mt: 4 }}>
-            {structure.coreUnits.map((unit) => (
+            {coreUnits.map((unit) => (
               <ListItem key={unit.code} sx={{ py: 2 }}>
                 <ListItemIcon>
                   <CheckCircle sx={{ color: "primary.main" }} />
@@ -337,25 +313,7 @@ const CoursePost = () => {
               </ListItem>
             ))}
           </List>
-        )}
-        {tabValue === 1 && (
-          <List sx={{ mt: 4 }}>
-            {structure.electiveUnits.map((unit) => (
-              <ListItem key={unit.code} sx={{ py: 2 }}>
-                <ListItemIcon>
-                  <Book sx={{ color: "primary.main" }} />
-                </ListItemIcon>
-                <Box>
-                  <Typography sx={{ color: 'text.primary' }}>{unit.code}</Typography>
-                  <Typography variant="body1" sx={{ color: alpha(theme.palette.text.primary, 0.8) }}>{unit.title}</Typography>
-                  <Typography variant="body2" sx={{ color: alpha(theme.palette.text.primary, 0.8) }}>
-                    Group: {unit.group}
-                  </Typography>
-                </Box>
-              </ListItem>
-            ))}
-          </List>
-        )}
+        
       </Container>
 
       {/* Learning Outcomes Section */}
@@ -388,15 +346,11 @@ const CoursePost = () => {
           Assessment Methods
         </Typography>
         <List>
-          {assessmentMethods.map((method, index) => (
-            <ListItem key={index}>
-              <ListItemText primary={method} />
-            </ListItem>
-          ))}
+          
         </List>
       </Container>
     </Grid >
   );
 };
 
-export default CoursePost;
+export default CoursePage;
