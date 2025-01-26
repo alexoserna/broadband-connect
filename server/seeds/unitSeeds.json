@@ -80,32 +80,32 @@
         "group": "Group F"
     },
     {
-        "code": "ICTTEN254",
+        "code": "ICTCBL254",
         "title": "Joint metallic conductor cable in the access network.",
         "group": "Elective"
     },
     {
-        "code": "ICTTEN320",
+        "code": "ICTCBL320",
         "title": "Jumper metallic conductor cable in the access network.",
         "group": "Elective"
     },
     {
-        "code": "ICTTEN326",
+        "code": "ICTCBL326",
         "title": "Cut over metallic conductor cable in the access network.",
         "group": "Elective"
     },
     {
-        "code": "ICTTEN332",
+        "code": "ICTCBL332",
         "title": "Locate, identify and rectify copper cable faults.",
         "group": "Elective"
     },
     {
-        "code": "ICTTEN306",
+        "code": "ICTCBL306",
         "title": "Locate and identify cable system faults.",
         "group": "Elective"
     },
     {
-        "code": "ICTTEN246",
+        "code": "ICTCBL246",
         "title": "Install, maintain and modify customer premises communications cabling: ACMA Restricted Rule",
         "group": "Core"
     },
@@ -115,7 +115,7 @@
         "group": "Core"
     },
     {
-        "code": "ICTTEN335",
+        "code": "ICTCBL335",
         "title": " Construct aerial cable supports",
         "group": "Core"
     }

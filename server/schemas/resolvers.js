@@ -54,7 +54,15 @@ const resolvers = {
 
     // Courses
     getAllCourses: async () => {
-      return await Course.find().populate("coreUnits");
+      try {
+        const courses = await Course.find().populate({
+          path: "coreUnits",
+          model: "Unit", // Ensure the coreUnits field references the Unit model
+        });
+        return courses;
+      } catch (err) {
+        throw new Error(err);
+      }
     },
     getCourseBySlug: async (_, { slug }) => {
       return await Course.findOne({ slug }).populate("coreUnits");

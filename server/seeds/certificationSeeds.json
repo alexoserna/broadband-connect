@@ -27,24 +27,24 @@
     "structure": {
       "totalUnits": 16,
       "coreUnits": [
-        "6795456baa37c52d61ab1de4",
-        "6795456baa37c52d61ab1de5",
-        "6795456baa37c52d61ab1de6",
-        "6795456baa37c52d61ab1de7",
-        "6795456baa37c52d61ab1de8",
-        "6795456baa37c52d61ab1de9"
+        "ICTTEN202",
+        "ICTTEN208",
+        "ICTTEN315",
+        "ICTTEN317",
+        "ICTWHS204",
+        "ICTWOR308"
       ],
       "electiveUnits": [
-        "6795456baa37c52d61ab1ddf",
-        "6795456baa37c52d61ab1de0",
-        "6795456baa37c52d61ab1de1",
-        "6795456baa37c52d61ab1de2",
-        "6795456baa37c52d61ab1de3",
-        "6795456baa37c52d61ab1dee",
-        "6795456baa37c52d61ab1ded",
-        "6795456baa37c52d61ab1dea",
-        "6795456baa37c52d61ab1deb",
-        "6795456baa37c52d61ab1dec"
+        "ICTCBL247",
+        "ICTCBL322",
+        "ICTCBL301",
+        "ICTCBL303",
+        "ICTCBL333",
+        "ICTTEN318",
+        "ICTCBL330",
+        "ICTCBL329",
+        "ICTCBL253",
+        "ICTCBL334"
       ]
     },
     "skillTree": [],
@@ -76,22 +76,22 @@
     "structure": {
       "totalUnits": 14,
       "coreUnits": [
-        "6795456baa37c52d61ab1de8",
-        "6795456baa37c52d61ab1de5",
-        "6795456baa37c52d61ab1de4",
-        "6795456baa37c52d61ab1de7",
-        "6795456baa37c52d61ab1de9",
-        "6795456baa37c52d61ab1de6"
+        "ICTWHS204",
+        "ICTTEN208",
+        "ICTTEN202",
+        "ICTWOR308",
+        "ICTTEN317",
+        "ICTTEN315"
       ],
       "electiveUnits": [
-        "6795456baa37c52d61ab1ddf",
-        "6795456baa37c52d61ab1dea",
-        "6795456baa37c52d61ab1dec",
-        "67954fe45714ce962aed1ce5",
-        "67954fe45714ce962aed1ce6",
-        "67954fe45714ce962aed1ce7",
-        "67954fe45714ce962aed1ce9",
-        "67954fe45714ce962aed1ce8"
+        "ICTCBL247",
+        "ICTCBL254",
+        "ICTCBL329",
+        "ICTCBL334",
+        "ICTCBL326",
+        "ICTCBL306",
+        "ICTCBL320",
+        "ICTCBL332"
       ]
     },
     "skillTree": [],

@@ -4,7 +4,7 @@ import { Box, Typography, Container, Paper, Button } from '@mui/material';
 import SchoolIcon from "@mui/icons-material/School";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import Grid from '@mui/material/Grid2';
-import { QUERY_COURSES } from '../utils/queries.js';
+import { QUERY_COURSES, QUERY_CERTIFICATIONS } from '../utils/queries.js';
 import { Link } from 'react-router-dom';
 import { alpha, useTheme } from '@mui/material/styles';
 import { useState } from 'react';
@@ -21,10 +21,14 @@ import HeroBackground from '../assets/images/grayscale-circuit.png'
 const Courses = () => {
 
   const theme = useTheme();
-  const { loading, error, data } = useQuery(QUERY_COURSES);
+  // Fetch courses and certifications
+  const { loading: loadingCourses, error: errorCourses, data: dataCourses } = useQuery(QUERY_COURSES);
+  const { loading: loadingCertifications, error: errorCertifications, data: dataCertifications } = useQuery(QUERY_CERTIFICATIONS);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error.message} <br /> Data: {data}</p>;
+  // Handle loading and error states
+  if (loadingCourses || loadingCertifications) return <p>Loading...</p>;
+  if (errorCourses || errorCertifications)
+    return <p>Error: {errorCourses?.message || errorCertifications?.message}</p>;
 
   const containerVariants = {
     hidden: { opacity: 0, y: 50 }, // Initial state

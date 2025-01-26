@@ -1,59 +1,76 @@
 const db = require("../config/connection");
-const { Course, Certification, Unit } = require("../models");
+const { Unit, Course, Certification } = require("../models");
 
-
-const certificationSeeds = require('./certificationSeeds.json');
+const unitSeeds = require("./unitSeeds.json");
 const courseSeeds = require("./courseSeeds.json");
-const unitSeeds = require('./unitSeeds.json');
+const certificationSeeds = require("./certificationSeeds.json");
 
 db.once("open", async () => {
-    try {
-        console.log("Starting database seeding...");
+  try {
+    console.log("Starting seeding...");
 
-        // Step 1: Seed Units
-        console.log("Seeding Units...");
-        await Unit.deleteMany({});
-        const units = await Unit.insertMany(unitSeeds);
-        console.log("Units seeded successfully!");
+    // Step 1: Seed Units
+    console.log("Seeding Units...");
+    await Unit.deleteMany({});
+    const units = await Unit.insertMany(unitSeeds);
+    console.log("Units seeded successfully!");
 
-        // Step 2: Seed Courses
-        console.log("Seeding Courses...");
-        await Course.deleteMany({});
-        const courses = await Course.insertMany(courseSeeds);
-        console.log("Courses seeded successfully!");
+    // Build Unit Map (unitCode -> ObjectId)
+    const unitMap = units.reduce((map, unit) => {
+      map[unit.code] = unit._id;
+      return map;
+    }, {});
 
-        // Step 3: Fetch Unit and Course IDs for Certification Linking
-        console.log("Linking Certifications...");
-        const coreUnits = await Unit.find({ group: "Core" }).select("_id");
-        const electiveUnits = await Unit.find({ group: "Group C" }).select("_id");
+    console.log("Unit Map:", unitMap);
 
-        const skillTreeCourses = await Course.find({
-            slug: { $in: ["open-cabler-registration", "structured-cabling"] } // Update slugs as needed
-        }).select("_id");
-
-        // Step 4: Populate Certifications with IDs
-        certificationSeeds.forEach((certification) => {
-            if (certification.slug === "certification-iii-in-telecommunications-technology") {
-                certification.structure.coreUnits = coreUnits.map((unit) => unit._id);
-                certification.structure.electiveUnits = electiveUnits.map((unit) => unit._id);
-                certification.skillTree = skillTreeCourses.map((course) => course._id);
-            }
-            if (certification.slug === "ict30419-certification-iii-network-build") {
-                certification.structure.coreUnits = coreUnits.map((unit) => unit._id);
-                certification.structure.electiveUnits = electiveUnits.map((unit) => unit._id);
-            }
-        });
-
-        // Step 5: Seed Certifications
-        await Certification.deleteMany({});
-        await Certification.insertMany(certificationSeeds);
-        console.log("Certifications seeded successfully!");
-
-        console.log("Database seeding complete!");
-        process.exit(0);
-    } catch (err) {
-        console.error("Error during database seeding:", err);
-        process.exit(1);
+    // Step 2: Seed Courses
+    console.log("Seeding Courses...");
+    await Course.deleteMany({});
+    for (const course of courseSeeds) {
+      if (course.coreUnits) {
+        course.coreUnits = course.coreUnits.map((unitCode) => {
+          const unitId = unitMap[unitCode];
+          if (!unitId) {
+            console.warn(`Unit code ${unitCode} not found for course "${course.title}".`);
+          }
+          return unitId;
+        }).filter(Boolean); // Remove undefined values
+      }
+      await Course.create(course);
+      console.log(`Course "${course.title}" seeded successfully.`);
     }
 
+    // Step 3: Seed Certifications
+    console.log("Seeding Certifications...");
+    await Certification.deleteMany({});
+    for (const certification of certificationSeeds) {
+      if (certification.structure && certification.structure.coreUnits) {
+        certification.structure.coreUnits = certification.structure.coreUnits.map((unitCode) => {
+          const unitId = unitMap[unitCode];
+          if (!unitId) {
+            console.warn(`Unit code ${unitCode} not found for certification "${certification.title}".`);
+          }
+          return unitId;
+        }).filter(Boolean);
+      }
+
+      if (certification.structure && certification.structure.electiveUnits) {
+        certification.structure.electiveUnits = certification.structure.electiveUnits.map((unitCode) => {
+          const unitId = unitMap[unitCode];
+          if (!unitId) {
+            console.warn(`Elective unit code ${unitCode} not found for certification "${certification.title}".`);
+          }
+          return unitId;
+        }).filter(Boolean);
+      }
+      await Certification.create(certification);
+      console.log(`Certification "${certification.title}" seeded successfully.`);
+    }
+
+    console.log("Seeding complete!");
+    process.exit(0);
+  } catch (err) {
+    console.error("Error during seeding:", err);
+    process.exit(1);
+  }
 });

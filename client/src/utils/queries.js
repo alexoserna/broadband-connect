@@ -26,11 +26,6 @@ export const QUERY_COURSES = gql`
       code
       title
     }
-    electiveUnits {
-      _id
-      code
-      title
-    }
     learningOutcomes
     nbnSkills
     images
@@ -108,18 +103,10 @@ export const QUERY_COURSE = gql`
             price
             skillName
             }
-            structure {
-            totalUnits
-            electiveUnits {
-                code
-                group
-                title
-            }
             coreUnits {
                 code
                 group
                 title
-            }
             }
             title
         }
