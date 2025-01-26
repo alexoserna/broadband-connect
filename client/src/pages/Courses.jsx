@@ -1,6 +1,7 @@
 
 import { gql, useQuery } from '@apollo/client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useLoading } from "../context/LoadingContext";
 import { QUERY_COURSES, QUERY_CERTIFICATIONS } from '../utils/queries.js';
 
 import { Box, Typography, Container, Paper, Button } from '@mui/material';
@@ -23,6 +24,21 @@ import HeroBackground from '../assets/images/grayscale-circuit.png'
 const Courses = () => {
 
   const theme = useTheme();
+  const { setIsLoading } = useLoading();
+
+  
+  useEffect(() => {
+    setIsLoading(true); // Start loading
+
+    // Simulate data fetching
+    const timer = setTimeout(() => {
+      setIsLoading(false); // Stop loading after 2 seconds
+    }, 300);
+
+    return () => clearTimeout(timer); // Cleanup timer
+  }, [setIsLoading]);
+
+
   // Fetch courses and certifications
   const { loading: loadingCourses, error: errorCourses, data: dataCourses } = useQuery(QUERY_COURSES);
   const { loading: loadingCertifications, error: errorCertifications, data: dataCertifications } = useQuery(QUERY_CERTIFICATIONS);
@@ -44,7 +60,7 @@ const Courses = () => {
       type: 'course' // Add type to each course
     }))
   ];
-  
+
   const containerVariants = {
     hidden: { opacity: 0, y: 50 }, // Initial state
     visible: {

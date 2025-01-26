@@ -24,7 +24,8 @@ const NavWithSearch = () => {
     const [searchOpen, setSearchOpen] = useState(false);
     const [query, setQuery] = useState("");
 
-    const pages = ["Courses", "Careers", "Contact", "About"];
+    // Put careers page on hold as it won't have any content right now
+    const pages = ["Courses", "Contact", "About"];
 
     const handleOpenNavMenu = (event) => setAnchorElNav(event.currentTarget);
     const handleCloseNavMenu = () => setAnchorElNav(null);

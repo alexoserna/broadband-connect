@@ -7,7 +7,8 @@ import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider, createTheme, responsiveFontSizes } from '@mui/material/styles';
 import { GlobalStyles } from '@mui/material';
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom';
+import { LoadingProvider } from "./context/LoadingContext";
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 
 const client = new ApolloClient({
@@ -28,6 +29,14 @@ let theme = createTheme({
         },
       },
     },
+    MuiLink: {
+      styleOverrides: {
+        root: {
+          color: "textPrimary", // Force inheritance globally
+          textDecoration: "none", // Remove underline globally
+        },
+      },
+    },
   },
 
   palette: {
@@ -42,10 +51,12 @@ let theme = createTheme({
     },
     secondary: {
       main: '#007B43',
+      secondary: '#94B39A',
       light: '#b7d0bc',
     },
     accent: {
       main: '#D4A017',
+      secondary: '#D4D117',
     },
     // background colors
     background: {
@@ -73,23 +84,23 @@ const themeDark = createTheme({
     },
   },
   palette: {
-  primary: {
-    main: '#D44F40',
+    primary: {
+      main: '#D44F40',
+    },
+    secondary: {
+      main: '#85FFC8',
+    },
+    accent: {
+      main: '#E8B22C'
+    },
+    // background colors
+    backgroundCream: {
+      main: '#1A130A',
+    },
+    textColor: {
+      main: 'F2E5D4',
+    },
   },
-  secondary: {
-    main: '#85FFC8',
-  },
-  accent: {
-    main: '#E8B22C'
-  },
-  // background colors
-  backgroundCream: {
-    main: '#1A130A',
-  },
-  textColor: {
-    main: 'F2E5D4',
-  },
-},
 
 });
 
@@ -97,10 +108,12 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <ApolloProvider client={client}>
       <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
+        <LoadingProvider>
+          <CssBaseline />
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </LoadingProvider>
       </ThemeProvider>
     </ApolloProvider>
   </StrictMode>,

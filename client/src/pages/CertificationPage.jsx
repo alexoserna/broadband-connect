@@ -20,12 +20,13 @@ import {
   Tabs,
   Tab,
   SvgIcon,
-  Divider,
 } from '@mui/material';
 import { padding, styled } from '@mui/system';
 import { alpha, useTheme } from '@mui/material/styles';
 import { AccessTime, AttachMoney, Tag, CheckCircle, Book, AssignmentOutlined } from '@mui/icons-material';
 import Grid from '@mui/material/Grid2';
+
+import { motion } from 'framer-motion';
 
 const CertificationPage = () => {
 

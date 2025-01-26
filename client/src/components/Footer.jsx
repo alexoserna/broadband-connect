@@ -69,7 +69,8 @@ const Footer = () => {
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'center',
-                py: '36px'
+                py: '36px',
+                color: 'textPrimary'
             }}>
                 <Typography variant="body2" color="textPrimary" sx={{ fontSize: 12 }}>
                     © 2025 Broadband Connect. All rights reserved.

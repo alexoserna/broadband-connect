@@ -12,18 +12,21 @@ import CertificationPage from './pages/CertificationPage';
 
 import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
 import './App.css';
 
 import { setContext } from '@apollo/client/link/context';
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from "@apollo/client";
 
+import { useLoading } from "./context/LoadingContext";
+import LoadingSpinner from "./components/LoadingSpinner";
+
 function App() {
   const [count, setCount] = useState(0);
+  const { isLoading } = useLoading();
 
   return (
     <>
+      {isLoading && <LoadingSpinner />}
       {/* <Header /> */}
       <NavWithSearch />
       <Routes>
