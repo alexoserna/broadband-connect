@@ -286,12 +286,19 @@ const CertificationPage = () => {
       </Grid>
 
       {/* Qualification Description */}
-      <Grid size={12}>
+      <Grid size={{xs: 12, md: 6}}>
         <Container sx={{ my: 6 }}>
           <Typography variant="h4" fontWeight="bold" sx={{ mb: 4 }}>
             Qualification Description
           </Typography>
           <Typography variant="body1">{description}</Typography>
+        </Container>
+      </Grid>
+      <Grid size={{xs: 12, md: 6}}>
+        <Container sx={{ my: 6 }}>
+          <Typography variant="h4" fontWeight="bold" sx={{ mb: 4 }}>
+            image here
+          </Typography>
         </Container>
       </Grid>
 

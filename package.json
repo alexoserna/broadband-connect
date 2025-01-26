@@ -2,14 +2,15 @@
   "name": "broadband-connect",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server/server.js",
   "scripts": {
     "start:backend": "node server/server.js",
     "start:client": "cd client && npm run dev",
     "start": "concurrently \"npm run start:backend\" \"npm run start:client\"",
     "install": "cd server && npm i && cd ../client && npm i",
     "seed": "cd server && cd seeds && node seed.js",
-    "build": "cd client && npm run build"
+    "build": "cd client && npm run build",
+    "render-build":"npm install && npm run build"
   },
   "keywords": [],
   "author": "",
