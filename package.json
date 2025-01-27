@@ -6,7 +6,7 @@
   "scripts": {
     "start:backend": "node server/server.js",
     "start:client": "cd client && npm run dev",
-    "startBoth": "concurrently \"npm run start:backend\" \"npm run start:client\"",
+    "startBoth": "concurrently \"cross-env DATABASE_ENV=local npm run start:backend\" \"npm run start:client\"",
     "start": "node server/server.js",
     "install": "cd server && npm i && cd ../client && npm i",
     "seed": "cd server && cd seeds && node seed.js",
@@ -19,11 +19,12 @@
   "dependencies": {
     "apollo-server": "^3.13.0",
     "apollo-server-express": "^3.13.0",
+    "concurrently": "^9.1.2",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
-    "graphql": "^16.10.0",
-    "concurrently": "^9.1.2"
+    "graphql": "^16.10.0"
   },
   "devDependencies": {
+    "cross-env": "^7.0.3"
   }
 }

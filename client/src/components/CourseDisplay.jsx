@@ -4,7 +4,7 @@ import { useTheme } from "@emotion/react";
 import { alpha } from "@mui/material";
 import { motion } from "framer-motion";
 
-const CourseDisplay = ({ slug, title, description, type }) => {
+const CourseDisplay = ({ slug, title, courseIcon, description, type }) => {
 
     const theme = useTheme();
 
@@ -41,6 +41,8 @@ const CourseDisplay = ({ slug, title, description, type }) => {
                         {title}
                     </Typography>
                 </Box>
+
+                <Typography>{ courseIcon }</Typography>
 
                 <Typography variant="body2">
                     {description}

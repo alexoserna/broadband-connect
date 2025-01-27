@@ -366,9 +366,6 @@ const CertificationPage = () => {
                   <Box>
                     <Typography sx={{ color: 'text.primary' }}>{unit.code}</Typography>
                     <Typography variant="body1" sx={{ color: alpha(theme.palette.text.primary, 0.8) }}>{unit.title}</Typography>
-                    <Typography variant="body2" sx={{ color: alpha(theme.palette.text.primary, 0.8) }}>
-                      Group: {unit.group}
-                    </Typography>
                   </Box>
                 </ListItem>
               ))}

@@ -19,6 +19,7 @@ export const QUERY_COURSES = gql`
     _id
     title
     slug
+    courseIcon
     tagline
     description
     courseInformation
@@ -85,6 +86,7 @@ export const QUERY_COURSE = gql`
           slug
           tagline
           description
+          courseIcon
           courseInformation
           cost
           coreUnits {
@@ -108,6 +110,7 @@ export const QUERY_COURSE_BY_SLUG = gql`
     slug
     tagline
     description
+    courseIcon
     courseInformation
     cost
     coreUnits {
@@ -171,6 +174,7 @@ export const QUERY_SITE_WIDE_SEARCH = gql`
     searchCourses(searchTerm: $searchTerm) {
       _id
       images
+      courseIcon
       title
       slug
       description
@@ -178,6 +182,7 @@ export const QUERY_SITE_WIDE_SEARCH = gql`
     searchCertifications(searchTerm: $searchTerm) {
       _id
       images
+      courseIcon
       title
       slug
       tagline

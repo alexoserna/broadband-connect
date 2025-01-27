@@ -26,7 +26,7 @@ const Courses = () => {
   const theme = useTheme();
   const { setIsLoading } = useLoading();
 
-  
+
   useEffect(() => {
     setIsLoading(true); // Start loading
 
@@ -96,6 +96,8 @@ const Courses = () => {
               position: 'relative',
             }}>
             <Box
+            component={"img"}
+            src={`${HeroBackground}`}
               sx={{
                 position: 'absolute', // Positioned relative to the parent Box
                 top: '0',
@@ -103,10 +105,9 @@ const Courses = () => {
                 width: '100%',
                 height: '100%',
                 zIndex: 1, // Keeps the background behind the content
-                backgroundImage: `url('${HeroBackground}')`,
                 backgroundBlendMode: 'screen',
                 opacity: '0.13',
-                backgroundSize: 'cover',
+                objectFit: 'cover',
                 filter: 'blur(3px)',
                 backgroundPosition: 'center',
                 // Gradient Mask to Fade Out Bottom
@@ -115,7 +116,8 @@ const Courses = () => {
                 WebkitMaskSize: '100% 100%',
                 maskSize: '100% 100%',
               }}
-            ></Box>
+            >
+            </Box>
 
             {/* Hero Text */}
             <motion.div
@@ -360,6 +362,7 @@ const Courses = () => {
                       <CourseDisplay
                         slug={course.slug}
                         title={course.title}
+                        courseIcon={course.courseIcon}
                         description={course.description}
                         type={course.type}
                       />

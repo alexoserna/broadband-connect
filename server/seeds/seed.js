@@ -38,6 +38,7 @@ db.once("open", async () => {
       }
       await Course.create(course);
       console.log(`Course "${course.title}" seeded successfully.`);
+      console.log(`Course "${course.courseIcon}" seeded successfully.`);
     }
 
     // Step 3: Seed Certifications
