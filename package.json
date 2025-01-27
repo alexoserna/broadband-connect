@@ -6,6 +6,7 @@
   "scripts": {
     "start:backend": "node server/server.js",
     "start:client": "cd client && npm run dev",
+    "startBoth": "concurrently \"npm run start:backend\" \"npm run start:client\"",
     "start": "node server/server.js",
     "install": "cd server && npm i && cd ../client && npm i",
     "seed": "cd server && cd seeds && node seed.js",
