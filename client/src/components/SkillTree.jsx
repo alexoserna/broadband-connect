@@ -8,6 +8,7 @@ import { height, styled } from '@mui/system';
 import { motion } from "framer-motion";
 
 import InstallationImg from '../assets/images/installation.png';
+import AssetRenderer from "./assetRenderer";
 
 // Styled components for the Course Card
 const CourseCard = styled(Card)(({ theme }) => ({
@@ -58,21 +59,25 @@ const SkillTree = () => {
         {
             title: 'Open Cabler',
             description: 'Learn the basics of open cabling and installations.',
+            courseIcon: "openCabler",
             slug: 'open-cabler-registration',
         },
         {
-            title: 'Optical Fiber Endorsement',
+            title: 'Optical Fibre Cabling',
             description: 'Gain expertise in handling and installing optical fibers.',
+            courseIcon: "opticalFibre",
             slug: 'optical-fibre-cabling',
         },
         {
             title: 'Pit and Pipe',
             description: 'Understand pit and pipe installation for NBN networks.',
+            courseIcon: "underground",
             slug: 'pit-and-pipe',
         },
         {
             title: 'FTTC Technician',
             description: 'Master fiber-to-the-curb (FTTC) technology.',
+            courseIcon: "fttc",
             slug: 'fttc-technician'
         },
     ];
@@ -148,16 +153,14 @@ const SkillTree = () => {
                             <motion.div variants={itemVariants}>
                                 <Box
                                     sx={{
-                                        height: '80px',
-                                        aspectRatio: '1/1',
-                                        backgroundImage: `url(${InstallationImg})`,
-                                        backgroundSize: 'cover',
-                                        backgroundPosition: 'center',
+                                        width: '80px',
                                         mx: 'auto',
                                     }}>
+                                        <AssetRenderer iconName={course.courseIcon} style={{ height: "80px", AspectRatio: '1/1', mx: 'auto' }}/>
                                 </Box>
                             </motion.div>
                         </Grid>
+                        
                         {index < courses.length - 1 && (
                             <Grid
                                 order={(3 * (index + 1))}

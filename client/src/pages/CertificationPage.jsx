@@ -107,39 +107,41 @@ const CertificationPage = () => {
           position: 'relative',
         }}>
         {/* text section */}
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: { xs: "center", md: "flex-start" },
-            textAlign: { xs: "center", md: "left" },
-            padding: "2rem",
-            height: { xs: '82vh', md: '40vh' },
-            zIndex: 1,
-          }}
-        >
-          <Typography variant="h2" fontWeight="bold" sx={{ letterSpacing: "2px" }} gutterBottom>
-            {title}
-          </Typography>
-          <Typography variant="h5" sx={{ my: 3 }}>
-            {tagline}
-          </Typography>
-          <Button
-            variant="contained"
-            size="large"
+        <Container>
+          <Box
             sx={{
-              mt: 4,
-              px: 4,
-              py: 2,
-              backgroundColor: "#D4A017",
-              ":hover": { backgroundColor: "#B68C0B" },
-              boxShadow: "0 4px 10px rgba(0, 0, 0, 0.2)",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: { xs: "center", md: "flex-start" },
+              textAlign: { xs: "center", md: "left" },
+              padding: "2rem",
+              height: { xs: '82vh', md: '40vh' },
+              zIndex: 1,
             }}
           >
-            Enroll Now
-          </Button>
-        </Box>
+            <Typography variant="h2" fontWeight="bold" sx={{ letterSpacing: "2px" }} gutterBottom>
+              {title}
+            </Typography>
+            <Typography variant="h5" sx={{ my: 3 }}>
+              {tagline}
+            </Typography>
+            <Button
+              variant="contained"
+              size="large"
+              sx={{
+                mt: 4,
+                px: 4,
+                py: 2,
+                backgroundColor: "#D4A017",
+                ":hover": { backgroundColor: "#B68C0B" },
+                boxShadow: "0 4px 10px rgba(0, 0, 0, 0.2)",
+              }}
+            >
+              Enroll Now
+            </Button>
+          </Box>
+        </Container>
 
         {/* Background Icon */}
         <Box
@@ -286,7 +288,7 @@ const CertificationPage = () => {
       </Grid>
 
       {/* Qualification Description */}
-      <Grid size={{xs: 12, md: 6}}>
+      <Grid size={{ xs: 12, md: 6 }}>
         <Container sx={{ my: 6 }}>
           <Typography variant="h4" fontWeight="bold" sx={{ mb: 4 }}>
             Qualification Description
@@ -294,7 +296,7 @@ const CertificationPage = () => {
           <Typography variant="body1">{description}</Typography>
         </Container>
       </Grid>
-      <Grid size={{xs: 12, md: 6}}>
+      <Grid size={{ xs: 12, md: 6 }}>
         <Container sx={{ my: 6 }}>
           <Typography variant="h4" fontWeight="bold" sx={{ mb: 4 }}>
             image here

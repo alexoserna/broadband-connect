@@ -1,4 +1,3 @@
-
 import { gql, useQuery } from '@apollo/client';
 import { useState, useEffect } from 'react';
 import { useLoading } from "../context/LoadingContext";
@@ -18,8 +17,9 @@ import SearchBar from '../components/SearchBar.jsx';
 import SkillTree from '../components/SkillTree.jsx';
 import CourseDisplay from '../components/CourseDisplay.jsx';
 import ComingSoonSection from '../components/ComingSoon.jsx';
+import AssetRenderer from '../components/assetRenderer.jsx';
 
-import HeroBackground from '../assets/images/grayscale-circuit.png'
+import HeroBackground from '../assets/images/grayscale-circuit.png';
 
 const Courses = () => {
 
@@ -96,8 +96,8 @@ const Courses = () => {
               position: 'relative',
             }}>
             <Box
-            component={"img"}
-            src={`${HeroBackground}`}
+              component={"img"}
+              src={`${HeroBackground}`}
               sx={{
                 position: 'absolute', // Positioned relative to the parent Box
                 top: '0',
@@ -166,8 +166,119 @@ const Courses = () => {
 
         </Grid>
 
+        {/* Certification  */}
+        <Grid size={{ xs: 12, md: 4 }}>
+          <Container
+            sx={{
+              py: { xs: '64px', md: '128px' },
+              px: '16px',
+            }}>
+            <motion.div
+              initial="hidden" // Start with hidden state
+              whileInView="visible" // Animate when in view
+              viewport={{ once: true }} // Trigger animation only once
+              variants={containerVariants} // Use container animation variants
+            >
+              <Grid container spacing={4}>
+                {/* Certificate 3 */}
+                <Grid size={12}>
+                  <motion.div variants={itemVariants}>
+                    <Box
+                      sx={{
+                        p: { xs: 6, md: 10 },
+                        m: { xs: 2, md: 5 },
+                        textAlign: "center",
+                        height: "100%",
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "space-between",
+                        backgroundColor: theme.palette.backgroundCream.card,
+                        borderRadius: "16px",
+                        boxShadow: '0px 4px 15px rgba(0, 0, 0, 0.08)',
+                      }}
+                    >
+                      <SchoolIcon sx={{ fontSize: 80, color: "#FF7043", mb: 2 }} />
+                      <Typography
+                        variant="h5"
+                        fontWeight="bold"
+                        sx={{ mb: 2, color: "#333" }}
+                      >
+                        Certificate III in Telecommunications
+                      </Typography>
+                      <Typography variant="body1" sx={{ mb: 4, color: "#555" }}>
+                        Stand out with essential skills and credentials for the
+                        telecommunications industry.
+                      </Typography>
+                      <Button
+                        component={Link}
+                        to='/courses/certification/certification-iii-in-telecommunications-technology'
+                        variant="contained"
+                        color="primary"
+                        sx={{
+                          backgroundColor: "#FF7043",
+                          borderRadius: "16px", // Match button corners
+                          "&:hover": { backgroundColor: "#FF5722", color: '#FFF' },
+                        }}
+                      >
+                        Learn More
+                      </Button>
+                    </Box>
+                  </motion.div>
+                </Grid>
+
+                {/* RPL Column */}
+                <Grid size={12}>
+                  <motion.div variants={itemVariants}>
+                    <Box
+                      sx={{
+                        p: { xs: 6, md: 10 },
+                        m: { xs: 2, md: 5 },
+                        textAlign: "center",
+                        height: "100%",
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "space-between",
+                        backgroundColor: theme.palette.backgroundCream.card,
+                        borderRadius: "16px",
+                        boxShadow: '0px 4px 15px rgba(0, 0, 0, 0.08)',
+                      }}
+                    >
+                      <CheckCircleIcon sx={{ fontSize: 80, color: "#66BB6A", mb: 2 }} />
+                      <Typography
+                        variant="h5"
+                        fontWeight="bold"
+                        sx={{ mb: 2, color: "#333" }}
+                      >
+                        Renew Your Certification with Ease!
+                      </Typography>
+                      <Typography variant="body1" sx={{ mb: 4, color: "#555" }}>
+                        Assess your skills to renew your certification—no retraining
+                        needed.
+                      </Typography>
+                      <Button
+                        component={Link}
+                        to="/courses/recognized-prior-learning"
+                        variant="contained"
+                        color="primary"
+                        sx={{
+                          backgroundColor: "#66BB6A",
+                          borderRadius: "16px", // Match button corners
+                          "&:hover": { backgroundColor: "#43A047", color: "#FFF" },
+                        }}
+                      >
+                        Learn More
+                      </Button>
+                    </Box>
+                  </motion.div>
+                </Grid>
+
+              </Grid>
+            </motion.div>
+          </Container>
+        </Grid>
+
         {/* Skill tree */}
-        <Grid size={12}>
+        <Grid size={{ xs: 12, md: 8 }}>
           <motion.div
             initial="hidden" // Start with hidden state
             whileInView="visible" // Animate when in view
@@ -210,115 +321,6 @@ const Courses = () => {
               </Grid>
             </Container>
           </motion.div>
-        </Grid>
-
-        {/* Certification  */}
-        <Grid size={12}>
-          <Container
-            sx={{
-              py: { xs: '64px', md: '128px' },
-              px: '16px',
-            }}>
-            <motion.div
-              initial="hidden" // Start with hidden state
-              whileInView="visible" // Animate when in view
-              viewport={{ once: true }} // Trigger animation only once
-              variants={containerVariants} // Use container animation variants
-            >
-              <Grid container spacing={4}>
-                {/* Certificate 3 */}
-                <Grid size={{ xs: 12, md: 6 }}>
-                  <motion.div variants={itemVariants}>
-                    <Box
-                      sx={{
-                        p: 6,
-                        m: 3,
-                        textAlign: "center",
-                        height: "100%",
-                        display: "flex",
-                        flexDirection: "column",
-                        justifyContent: "space-between",
-                        backgroundColor: theme.palette.backgroundCream.card,
-                        borderRadius: "16px",
-                      }}
-                    >
-                      <SchoolIcon sx={{ fontSize: 80, color: "#FF7043", mb: 2 }} />
-                      <Typography
-                        variant="h5"
-                        fontWeight="bold"
-                        sx={{ mb: 2, color: "#333" }}
-                      >
-                        Certificate III in Telecommunications
-                      </Typography>
-                      <Typography variant="body1" sx={{ mb: 4, color: "#555" }}>
-                        Stand out with essential skills and credentials for the
-                        telecommunications industry.
-                      </Typography>
-                      <Button
-                        component={Link}
-                        to='/courses/certification/certification-iii-in-telecommunications-technology'
-                        variant="contained"
-                        color="primary"
-                        sx={{
-                          backgroundColor: "#FF7043",
-                          borderRadius: "16px", // Match button corners
-                          "&:hover": { backgroundColor: "#FF5722", color: '#FFF' },
-                        }}
-                      >
-                        Learn More
-                      </Button>
-                    </Box>
-                  </motion.div>
-                </Grid>
-
-                {/* RPL Column */}
-                <Grid size={{ xs: 12, md: 6 }}>
-                  <motion.div variants={itemVariants}>
-                    <Box
-                      sx={{
-                        p: 6,
-                        m: 3,
-                        textAlign: "center",
-                        height: "100%",
-                        display: "flex",
-                        flexDirection: "column",
-                        justifyContent: "space-between",
-                        backgroundColor: theme.palette.backgroundCream.card,
-                        borderRadius: "16px",
-                      }}
-                    >
-                      <CheckCircleIcon sx={{ fontSize: 80, color: "#66BB6A", mb: 2 }} />
-                      <Typography
-                        variant="h5"
-                        fontWeight="bold"
-                        sx={{ mb: 2, color: "#333" }}
-                      >
-                        Renew Your Certification with Ease!
-                      </Typography>
-                      <Typography variant="body1" sx={{ mb: 4, color: "#555" }}>
-                        Assess your skills to renew your certification—no retraining
-                        needed.
-                      </Typography>
-                      <Button
-                        component={Link}
-                        to="/courses/recognized-prior-learning"
-                        variant="contained"
-                        color="primary"
-                        sx={{
-                          backgroundColor: "#66BB6A",
-                          borderRadius: "16px", // Match button corners
-                          "&:hover": { backgroundColor: "#43A047", color: "#FFF" },
-                        }}
-                      >
-                        Learn More
-                      </Button>
-                    </Box>
-                  </motion.div>
-                </Grid>
-
-              </Grid>
-            </motion.div>
-          </Container>
         </Grid>
 
         {/* View All Grid */}

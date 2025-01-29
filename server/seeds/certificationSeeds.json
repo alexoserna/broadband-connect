@@ -1,9 +1,9 @@
 [
   {
-    "title": "Cert III in Telecommunications Technology",
+    "title": "Certificate III in Telecommunications Technology",
     "slug": "certification-iii-in-telecommunications-technology",
     "tagline": "Step into the world of advanced telecommunications.",
-    "courseIcon": "/icons/cert3-telecom.svg",
+    "courseIcon": "telecommunications",
     "description": "The Certificate III in Telecommunications Technology is designed for telecommunications technology operators involved in installation, fault-finding, and testing of telecommunications systems and equipment. This qualification prepares individuals to assess installation needs, perform installations, and troubleshoot networks across various telecommunications environments.",
     "category": "Telecommunications",
     "cost": 4000,
@@ -54,7 +54,7 @@
     "title": "Certificate III in Telecommunications Network Build and Operation",
     "slug": "certification-iii-network-build",
     "tagline": "Your gateway to building modern telecommunications networks.",
-    "courseIcon": "/icons/cert3-network-build.svg",
+    "courseIcon": "build",
     "description": "The ICT30419 Certificate III in Telecommunications Network Build and Operation focuses on the essential skills required to build, operate, and maintain modern telecommunications networks.",
     "category": "Telecommunications",
     "cost": 4000,

@@ -14,20 +14,25 @@ const server = new ApolloServer({
   resolvers,
 });
 
+const corsOptions = {
+  origin: process.env.CLIENT_URL || "http://localhost:5173",
+  credentials: true,
+};
+
 const startApolloServer = async () => {
   await server.start();
-  server.applyMiddleware({ app });
+  server.applyMiddleware({ app, cors: corsOptions });
 
   // Serve static files from the Vite `dist` folder
-  app.use(express.static(path.join(__dirname, "../client/dist")));
+  app.use(express.static(path.resolve(__dirname, "../client/dist")));
 
   // Fallback route for Single Page Application (SPA)
   app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "../client/dist/index.html"));
+    res.sendFile(path.resolve(__dirname, "../client/dist/index.html"));
   });
 
   db.once("open", () => {
-    app.listen(PORT, () => {
+    app.listen(PORT, "0.0.0.0", () => {
       console.log(`API server running on port ${PORT}!`);
       console.log(`GraphQL endpoint available at http://localhost:${PORT}${server.graphqlPath}`);
     });

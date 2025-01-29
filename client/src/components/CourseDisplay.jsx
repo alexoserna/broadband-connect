@@ -1,8 +1,9 @@
 import { Box, Typography, Button } from "@mui/material";
+import React from "react";
 import { Link } from "react-router-dom";
 import { useTheme } from "@emotion/react";
-import { alpha } from "@mui/material";
 import { motion } from "framer-motion";
+import AssetRenderer from "./assetRenderer";
 
 const CourseDisplay = ({ slug, title, courseIcon, description, type }) => {
 
@@ -15,62 +16,32 @@ const CourseDisplay = ({ slug, title, courseIcon, description, type }) => {
 
     return (
         <motion.div variants={itemVariants}>
+
             <Box
+                component={Link}
+                to={
+                    type === 'certification'
+                        ? `/courses/certification/${slug}` // Route for certifications
+                        : `/courses/${slug}` // Route for courses
+                }
                 sx={{
-                    backgroundColor: alpha("#FFFFFF", 0.5),
-                    borderRadius: "16px",
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'center',
-                    boxShadow: 1,
-                    padding: 3,
-                    my: { xs: 1, md: 3 },
-                    minHeight: '330px',
-                    transition: "transform 0.2s, box-shadow 0.2s",
+                    transition: "all 0.3s ease-in-out",
+                    display: "inline-block",
+                    color: "black", // Default color
+                    textDecoration: "none",
                     "&:hover": {
-                        transform: "scale(1.05)",
-                        boxShadow: 4,
+                        transform: 'scale(1.05)',
+                        color: "accent.main", // Hover color
                     },
-                }}
-            >
-                <Box
-                    sx={{
-                        height: "95px",
-                    }}>
-                    <Typography variant="h5" gutterBottom>
-                        {title}
-                    </Typography>
-                </Box>
+                }}>
 
-                <Typography>{ courseIcon }</Typography>
+                <AssetRenderer iconName={courseIcon} style={{ width: "70%", height: "auto", AspectRatio: '1/1' }} />
 
-                <Typography variant="body2">
-                    {description}
+                <Typography variant="h5" gutterBottom sx={{ marginTop: 3 }}>
+                    {title}
                 </Typography>
-
-
-                <Button
-                    color="primary"
-                    component={Link}
-                    to={
-                        type === 'certification'
-                            ? `/courses/certification/${slug}` // Route for certifications
-                            : `/courses/${slug}` // Route for courses
-                    }
-                    sx={{
-                        marginTop: 'auto',
-                        borderRadius: '16px',
-                        backgroundColor: theme.palette.primary.main,
-                        color: "#FFF",
-                        "&:hover": {
-                            backgroundColor: "#A1402B",
-                            color: '#FFF',
-                        },
-                    }}>
-                    Learn More
-                </Button>
-
             </Box>
+
         </motion.div>
     )
 
