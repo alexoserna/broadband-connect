@@ -72,7 +72,7 @@ const SkillTree = () => {
             title: 'Pit and Pipe',
             description: 'Understand pit and pipe installation for NBN networks.',
             courseIcon: "underground",
-            slug: 'pit-and-pipe',
+            slug: 'pit-and-pipe-installation',
         },
         {
             title: 'FTTC Technician',
@@ -156,7 +156,7 @@ const SkillTree = () => {
                                         width: '80px',
                                         mx: 'auto',
                                     }}>
-                                        <AssetRenderer iconName={course.courseIcon} style={{ height: "80px", AspectRatio: '1/1', mx: 'auto' }}/>
+                                        <AssetRenderer type={'icon'} assetName={course.courseIcon} style={{ height: "80px", AspectRatio: '1/1', mx: 'auto' }}/>
                                 </Box>
                             </motion.div>
                         </Grid>

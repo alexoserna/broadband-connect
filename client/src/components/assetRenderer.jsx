@@ -1,5 +1,5 @@
 const icons = import.meta.glob("../assets/icons/*.svg", { eager: true, import: "default" });
-const images = import.meta.glob("../assets/icons/*.png", { eager: true });
+const images = import.meta.glob("../assets/images/*.{png,jpg,jpeg,svg}", { eager: true, import: 'default' });
 import { SvgIcon } from "@mui/material";
 
 // Centralized Icon Registry
@@ -21,17 +21,28 @@ const iconRegistry = {
   "build": icons["../assets/icons/build.svg"],
 };
 
-// IconRenderer Component
-const AssetRenderer = ({ iconName, ...props }) => {
-  console.log(iconName);
-  const IconComponent = iconRegistry[iconName];
+const imageRegistry = {
+  "default": icons["../assets/icons/404.svg"],
+  "installation": images["../assets/images/installation.png"],
+  "hero": images["../assets/images/ricardo-gomez-angel-MagdWoazARo-unsplash.png"],
+}
 
-  if (!IconComponent) {
-    console.error(`❌ Icon "${iconName}" not found.`);
-    return <img src={iconRegistry["default"]} {...props} />;
+
+
+// IconRenderer Component
+const AssetRenderer = ({ type, assetName, ...props }) => {
+  console.log(assetName);
+  const registry = type === "image" ? imageRegistry : iconRegistry;
+  console.log(type)
+
+  const imgSrc = registry[assetName];
+
+  if (!imgSrc) {
+    console.error(`❌ Icon "${assetName}" not found.`);
+    return <img src={registry["default"]} {...props} />;
   }
 
-  return <img src={iconRegistry[iconName]} {...props} />;
+  return <img src={registry[assetName]} {...props} />;
 };
 
 export default AssetRenderer;

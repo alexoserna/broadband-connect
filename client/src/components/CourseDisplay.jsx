@@ -35,7 +35,7 @@ const CourseDisplay = ({ slug, title, courseIcon, description, type }) => {
                     },
                 }}>
 
-                <AssetRenderer iconName={courseIcon} style={{ width: "70%", height: "auto", AspectRatio: '1/1' }} />
+                <AssetRenderer type={'icon'} assetName={courseIcon} style={{ width: "70%", height: "auto", AspectRatio: '1/1' }} />
 
                 <Typography variant="h5" gutterBottom sx={{ marginTop: 3 }}>
                     {title}

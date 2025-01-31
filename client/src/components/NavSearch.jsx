@@ -39,7 +39,7 @@ const NavWithSearch = () => {
                 backgroundColor: theme.palette.backgroundCream.main,
                 color: theme.palette.primary.main,
                 boxShadow: 'none',
-                borderBottom: '1px solid #dcd6ce',
+                borderBottom: `1px solid ${theme.palette.backgroundCream.secondary}`,
             }}
         >
             <Container maxWidth="xl">

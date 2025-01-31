@@ -44,6 +44,7 @@ let theme = createTheme({
       primary: '#2C1F0E',
       secondary: '#F1E3DA',
       hyper: '#153243',
+      muted: '#6e5f50'
     },
     primary: {
       main: '#C0392B',
@@ -65,6 +66,7 @@ let theme = createTheme({
     },
     backgroundCream: {
       main: '#F4ECE4',
+      secondary: '#dcd6ce',
       card: '#F1E3DA',
     },
   },

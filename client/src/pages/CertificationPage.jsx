@@ -9,28 +9,27 @@ import {
   Button,
   Card,
   CardContent,
-  Accordion,
-  AccordionSummary,
-  AccordionDetails,
   Container,
   List,
   ListItem,
   ListItemText,
-  ListItemIcon,
   Tabs,
   Tab,
   SvgIcon,
+  Divider
 } from '@mui/material';
-import { padding, styled } from '@mui/system';
 import { alpha, useTheme } from '@mui/material/styles';
-import { AccessTime, AttachMoney, Tag, CheckCircle, Book, AssignmentOutlined } from '@mui/icons-material';
+import { AccessTime, AttachMoney, Tag, CheckCircle, Book, AssignmentOutlined, Work, School, Circle } from '@mui/icons-material';
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import Grid from '@mui/material/Grid2';
+import CourseAccordion from "../components/CourseAccordion.jsx";
+import { styled } from "@mui/material/styles";
+import AssetRenderer from "../components/assetRenderer.jsx";
+import CTA from "../components/CTA.jsx";
 
 import { motion } from 'framer-motion';
 
 const CertificationPage = () => {
-
-  console.log('in the certification page');
 
   const hexToRgba = (hex, alpha) => {
     // Remove the '#' if present
@@ -46,6 +45,9 @@ const CertificationPage = () => {
   const theme = useTheme();
 
   const [tabValue, setTabValue] = useState(0);
+  const [expanded, setExpanded] = useState(null);
+
+  const handleExpand = (panel) => setExpanded(expanded === panel ? null : panel);
 
   const handleTabChange = (event, newValue) => {
     setTabValue(newValue);
@@ -61,17 +63,6 @@ const CertificationPage = () => {
 
   const certification = data.getCertificationBySlug;
 
-  const CourseCard = styled(Card)(({ theme }) => ({
-    display: 'flex',
-    justifyContent: 'center',
-    borderRadius: '16px',
-    boxShadow: 'none',
-    transition: 'all 0.3s ease-in-out',
-    padding: '25px',
-    height: { xs: '150px', md: '170px' },
-    backgroundColor: theme.palette.secondary.light,
-  }));
-
   const {
     title,
     description,
@@ -82,9 +73,10 @@ const CertificationPage = () => {
     careerOutcomes,
     structure,
     learningOutcomes,
-    deliveryMode,
-    assessmentMethods,
-    skillTree,
+    images
+    // deliveryMode,
+    // assessmentMethods,
+    // skillTree,
   } = certification;
 
 
@@ -106,6 +98,40 @@ const CertificationPage = () => {
           color: '#fff',
           position: 'relative',
         }}>
+
+        {/* Background Icon */}
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            position: 'absolute',
+            top: { xs: '18%', md: '20%' },
+            right: { xs: '-30%', md: '-20px' },
+            height: { xs: '60vh', md: '38vh' },
+          }}
+        >
+
+          <SvgIcon
+            sx={{
+              color: (theme.palette.backgroundCream.main),
+              width: 'auto', height: { xs: '120%', md: '150%' },
+              filter: `drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.3))`,
+              opacity: 0.5, rotate: '25deg',
+            }}>
+
+            <svg
+              id="Layer_2"
+              data-name="Layer 2"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 925.51 864.13"
+            >
+              <path fill="currentColor" className="cls-1" d="M36.71,849.21c21.5,14.84,48.94,16.6,79.37,5.11,20.35-17.93,282.13-134.28,293.31-139.24,45.64-20.8,53.64-50.79,52.94-102.35V224.75c-.81-27.37-13.7-51.07-35.35-64.96-23.48-15.07-54.03-16.48-83.81-3.89l-185.87,87.47.57-218.21C107.69-8.4,54.59-8.39,0,25.2v750.52c-.02,29.24,14.39,58.08,36.71,73.49ZM157.31,424.16l144.88-67.49v226.46l-144.88,66.91v-225.88Z" />
+              <path fill="currentColor" className="cls-2" d="M869.61,286.66l-222.09-93.15c-52.57-18.48-110.19,9.09-110.19,93.15v389.65c-.6,41.14,16.56,69.59,51.69,85.2l238.94,99.78c80.78,22.45,117.1-123.83,50.74-160.56l-182.33-77.25v-225.5l117.31,48.11c122.89,30.02,147.8-122.84,55.93-159.44Z" />
+            </svg>
+          </SvgIcon>
+
+        </Box>
         {/* text section */}
         <Container>
           <Box
@@ -143,40 +169,6 @@ const CertificationPage = () => {
           </Box>
         </Container>
 
-        {/* Background Icon */}
-        <Box
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            position: 'absolute',
-            top: { xs: '18%', md: '20%' },
-            right: { xs: '-30%', md: '-20px' },
-            height: { xs: '60vh', md: '38vh' },
-          }}
-        >
-
-          <SvgIcon
-            sx={{
-              color: (theme.palette.backgroundCream.main),
-              width: 'auto', height: { xs: '120%', md: '150%' },
-              filter: `drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.3))`,
-              opacity: 0.5, rotate: '25deg',
-            }}>
-
-            <svg
-              id="Layer_2"
-              data-name="Layer 2"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 925.51 864.13"
-            >
-              <path fill="currentColor" className="cls-1" d="M36.71,849.21c21.5,14.84,48.94,16.6,79.37,5.11,20.35-17.93,282.13-134.28,293.31-139.24,45.64-20.8,53.64-50.79,52.94-102.35V224.75c-.81-27.37-13.7-51.07-35.35-64.96-23.48-15.07-54.03-16.48-83.81-3.89l-185.87,87.47.57-218.21C107.69-8.4,54.59-8.39,0,25.2v750.52c-.02,29.24,14.39,58.08,36.71,73.49ZM157.31,424.16l144.88-67.49v226.46l-144.88,66.91v-225.88Z" />
-              <path fill="currentColor" className="cls-2" d="M869.61,286.66l-222.09-93.15c-52.57-18.48-110.19,9.09-110.19,93.15v389.65c-.6,41.14,16.56,69.59,51.69,85.2l238.94,99.78c80.78,22.45,117.1-123.83,50.74-160.56l-182.33-77.25v-225.5l117.31,48.11c122.89,30.02,147.8-122.84,55.93-159.44Z" />
-            </svg>
-          </SvgIcon>
-
-        </Box>
-
       </Box>
 
       {/* Overview Section */}
@@ -184,19 +176,29 @@ const CertificationPage = () => {
         <Container
           sx={{
             position: 'relative',
-            top: { xs: '-135px', md: '-50%' },
+            top: { xs: '0px', md: '-60%' },
             zIndex: 5,
           }}>
-          <CourseCard>
-            <Grid container spacing={3}>
+          <Card
+            sx={{
+              display: 'flex',
+              justifyContent: 'center',
+              borderRadius: '16px',
+              boxShadow: 'none',
+              transition: 'all 0.3s ease-in-out',
+              padding: { xs: '16px', md: '25px' },
+              height: 'auto',
+              backgroundColor: theme.palette.secondary.light,
+            }}>
+            <Grid container spacing={{ xs: 0, md: 3 }}>
 
               {/* Category */}
-              <Grid size={{ xs: 12, md: 3 }}
+              <Grid size={{ xs: 6, md: 3 }}
                 sx={{
                   display: 'flex',
                 }}>
 
-                <Tag sx={{ fontSize: { xs: '40px', md: '48px' }, color: "accent.main" }} />
+                <Tag sx={{ fontSize: { xs: '30px', md: '48px' }, color: "accent.main" }} />
 
                 <Box
                   sx={{
@@ -208,18 +210,25 @@ const CertificationPage = () => {
                     <Typography variant="h5" fontWeight="bold" align="left">
                       Category
                     </Typography>
-                    <Typography>{category}</Typography>
+                    <Typography
+                      sx={{
+                        whiteSpace: { xs: "nowrap", sm: "normal" }, // Prevent wrapping on xs, allow on sm+
+                        overflow: "hidden",
+                        textOverflow: { xs: "ellipsis", sm: "clip" }, // Show "..." only on xs
+                        maxWidth: { xs: "150px", sm: "100%" }, // Limit width only on xs
+                      }}
+                    >{category}</Typography>
                   </CardContent>
                 </Box>
               </Grid>
 
               {/* Structure */}
-              <Grid size={{ xs: 12, md: 3 }}
+              <Grid size={{ xs: 6, md: 3 }}
                 sx={{
                   display: 'flex'
                 }}>
 
-                <AssignmentOutlined sx={{ fontSize: { xs: '40px', md: '48px' }, color: "accent.main" }} />
+                <AssignmentOutlined sx={{ fontSize: { xs: '30px', md: '48px' }, color: "accent.main" }} />
 
                 <Box
                   sx={{
@@ -237,12 +246,12 @@ const CertificationPage = () => {
               </Grid>
 
               {/* Cost */}
-              <Grid size={{ xs: 12, md: 3 }}
+              <Grid size={{ xs: 6, md: 3 }}
                 sx={{
                   display: 'flex'
                 }}>
 
-                <AttachMoney sx={{ fontSize: { xs: '40px', md: '48px' }, color: "accent.main" }} />
+                <AttachMoney sx={{ fontSize: { xs: '30px', md: '48px' }, color: "accent.main" }} />
 
                 <Box
                   sx={{
@@ -260,12 +269,12 @@ const CertificationPage = () => {
               </Grid>
 
               {/* Duration */}
-              <Grid size={{ xs: 12, md: 3 }}
+              <Grid size={{ xs: 6, md: 3 }}
                 sx={{
                   display: 'flex'
                 }}>
 
-                <AccessTime sx={{ fontSize: { xs: '40px', md: '48px' }, color: "accent.main" }} />
+                <AccessTime sx={{ fontSize: { xs: '30px', md: '48px' }, color: "accent.main" }} />
 
                 <CardContent>
                   <Box
@@ -283,137 +292,185 @@ const CertificationPage = () => {
               </Grid>
 
             </Grid>
-          </CourseCard>
+          </Card>
         </Container>
       </Grid>
 
       {/* Qualification Description */}
-      <Grid size={{ xs: 12, md: 6 }}>
-        <Container sx={{ my: 6 }}>
-          <Typography variant="h4" fontWeight="bold" sx={{ mb: 4 }}>
-            Qualification Description
-          </Typography>
-          <Typography variant="body1">{description}</Typography>
-        </Container>
-      </Grid>
-      <Grid size={{ xs: 12, md: 6 }}>
-        <Container sx={{ my: 6 }}>
-          <Typography variant="h4" fontWeight="bold" sx={{ mb: 4 }}>
-            image here
-          </Typography>
-        </Container>
-      </Grid>
+      <Container sx={{ my: { xs: 3, md: 3 } }}>
+        <Grid container spacing={4} alignItems='center'>
 
-      {/* Career Outcomes */}
-      <Grid size={12}>
-        <Container sx={{ my: 6 }}>
-          <Typography variant="h4" fontWeight="bold" sx={{ mb: 4 }}>
-            Career Outcomes
-          </Typography>
-          <List>
-            {careerOutcomes.map((outcome, index) => (
-              <ListItem key={index}>
-                <ListItemText primary={outcome} />
-              </ListItem>
-            ))}
-          </List>
-        </Container>
-      </Grid>
-
-      {/* Course Structure Section */}
-      <Grid size={12}>
-        <Container sx={{ my: 6 }}>
-          <Typography variant="h4" fontWeight="bold" sx={{ mb: 4, textAlign: "center" }}>
-            Course Structure
-          </Typography>
-          <Tabs
-            value={tabValue}
-            onChange={handleTabChange}
-            textColor="primary"
-            indicatorColor="primary"
-            centered
-            sx={{
-              "& .MuiTab-root": {
-                textTransform: "none",
-                fontSize: "16px",
-                fontWeight: "bold",
-              },
-            }}
-          >
-            <Tab label="Core Units" icon={<CheckCircle />} />
-            <Tab label="Elective Units" icon={<Book />} />
-          </Tabs>
-          {tabValue === 0 && (
-            <List sx={{ mt: 4 }}>
-              {structure.coreUnits.map((unit) => (
-                <ListItem key={unit.code} sx={{ py: 2 }}>
-                  <ListItemIcon>
-                    <CheckCircle sx={{ color: "primary.main" }} />
-                  </ListItemIcon>
-                  <Box>
-                    <Typography sx={{ color: 'text.primary' }}>{unit.code}</Typography>
-                    <Typography variant="body1" sx={{ color: alpha(theme.palette.text.primary, 0.8) }}>{unit.title}</Typography>
-                  </Box>
-                </ListItem>
-              ))}
-            </List>
-          )}
-          {tabValue === 1 && (
-            <List sx={{ mt: 4 }}>
-              {structure.electiveUnits.map((unit) => (
-                <ListItem key={unit.code} sx={{ py: 2 }}>
-                  <ListItemIcon>
-                    <Book sx={{ color: "primary.main" }} />
-                  </ListItemIcon>
-                  <Box>
-                    <Typography sx={{ color: 'text.primary' }}>{unit.code}</Typography>
-                    <Typography variant="body1" sx={{ color: alpha(theme.palette.text.primary, 0.8) }}>{unit.title}</Typography>
-                  </Box>
-                </ListItem>
-              ))}
-            </List>
-          )}
-        </Container>
-      </Grid>
-
-      {/* Learning Outcomes Section */}
-      <Grid size={12}>
-        <Container sx={{ my: 6 }}>
-          <Typography variant="h4" fontWeight="bold" sx={{ mb: 4, textAlign: "center" }}>
-            Learning Outcomes
-          </Typography>
-          <Grid container spacing={4}>
-            {learningOutcomes.map((outcome, index) => (
-              <Grid size={{ xs: 12, md: 6 }} key={index}>
-                <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-                  <CheckCircle sx={{ color: "accent.main", fontSize: 30 }} />
-                  <Typography variant="body1">{outcome}</Typography>
-                </Box>
-              </Grid>
-            ))}
+          <Grid size={{ xs: 12, md: 6 }} sx={{ padding: '16px' }}>
+            <Box sx={{ maxWidth: "800px", margin: "auto" }}>
+              <Typography variant="h4" fontWeight="bold" sx={{ mb: 2 }}>
+                Course Overview
+              </Typography>
+              <Typography variant="body1">{description}</Typography>
+            </Box>
           </Grid>
-        </Container>
-      </Grid>
+          <Grid size={{ xs: 12, md: 6 }} sx={{ padding: '16px' }}>
+            <Box sx={{ height: "300px", backgroundColor: "#ddd", display: "flex", alignItems: "center", justifyContent: "center", borderRadius: '16px', overflow: 'hidden' }} >
+              <AssetRenderer type={'image'} assetName={'hero'} style={{ height: '300px', width: '100%', objectFit: 'cover' }} />
+            </Box>
 
-      {/* Delivery Mode & Assessment Section */}
-      <Container sx={{ my: 6 }}>
-        <Typography variant="h4" fontWeight="bold" sx={{ mb: 4 }}>
-          Delivery Mode & Assessment
-        </Typography>
-        <Typography variant="h5" fontWeight="bold" sx={{ mt: 2 }}>
-          Delivery Mode
-        </Typography>
-        <Typography>{deliveryMode}</Typography>
-        <Typography variant="h5" fontWeight="bold" sx={{ mt: 4 }}>
-          Assessment Methods
-        </Typography>
-        <List>
-          {assessmentMethods.map((method, index) => (
-            <ListItem key={index}>
-              <ListItemText primary={method} />
-            </ListItem>
-          ))}
-        </List>
+          </Grid>
+
+          <Divider sx={{ marginY: 4, width: '100%' }} />
+
+          {/* Career Outcomes */}
+          <Grid size={{ xs: 12, md: 6 }}>
+            <Box sx={{ maxWidth: "600px", margin: "auto" }}>
+              <Typography variant="h4" fontWeight="bold" sx={{ mb: 2 }}>
+                Career Paths & Job Opportunities
+              </Typography>
+              <List sx={{ padding: "16px" }}>
+                {careerOutcomes.map((outcome, index) => (
+                  <ListItem key={index} disableGutters>
+                    <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+                      <Work sx={{ color: "accent.main", fontSize: 30 }} />
+                      <Typography variant="body1">{outcome}</Typography>
+                    </Box>
+                  </ListItem>
+                ))}
+              </List>
+            </Box>
+          </Grid>
+
+          {/* Learning Outcomes Section */}
+          <Grid size={{ xs: 12, md: 6 }}>
+            <Box sx={{ maxWidth: "600px", margin: "auto" }}>
+              <Typography variant="h4" fontWeight="bold" sx={{ mb: 2, textAlign: "center" }}>
+                Skills You Will Gain
+              </Typography>
+              <Grid container spacing={2} sx={{ padding: '16px' }}>
+                {learningOutcomes.map((outcome, index) => (
+                  <Grid size={{ xs: 12, md: 6 }} key={index}>
+                    <Box sx={{ display: "flex", alignItems: "center", textAlign: 'left', gap: 2 }}>
+                      <CheckCircleIcon sx={{ color: "accent.main", fontSize: 30 }} />
+                      <Typography variant="body1">{outcome}</Typography>
+                    </Box>
+                  </Grid>
+                ))}
+              </Grid>
+            </Box>
+          </Grid>
+
+          {/* Course Structure Section */}
+          <Grid size={12}>
+            <Container sx={{ my: 6 }}>
+              <Typography variant="h4" fontWeight="bold" sx={{ mb: 4, textAlign: "center" }}>
+                Course Structure
+              </Typography>
+
+              {/* Tabs for Core & Elective Units */}
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  backgroundColor: "rgba(0, 0, 0, 0.05)", // Light background to unify section
+                  padding: "16px",
+                  borderRadius: "16px", // Rounded tab container
+                  mb: 2, // Reduce gap below tabs
+                }}
+              >
+                <Tabs
+                  value={tabValue}
+                  onChange={handleTabChange}
+                  indicatorColor="primary"
+                  centered
+                  sx={{
+                    "& .MuiTab-root": {
+                      color: alpha(theme.palette.text.primary, 0.6),
+                      textTransform: "none",
+                      fontSize: "16px",
+                      fontWeight: "bold",
+                      outline: "none", // Removes focus outline
+                    },
+                    "& .Mui-selected": {
+                      color: "primary.main", // Highlight selected tab
+                      outline: "none", // Removes focus outline
+                    },
+                  }}
+                >
+                  <Tab label="Core Units" icon={<School />} />
+                  <Tab label="Elective Units" icon={<Book />} />
+                </Tabs>
+
+              </Box>
+
+              {/* Conditional rendering this disclaimer specifically for elective units */}
+              {tabValue === 1 && (
+                <Typography variant="body2" sx={{ textAlign: "center", mt: 2 }}>
+                  Note: Electives offer flexibility and can be tailored to specific skill areas
+                </Typography>
+              )}
+
+              {/* Conditional Rendering Based on Tab Selection */}
+              <List sx={{ mt: 1 }}>
+                {(tabValue === 0 ? structure.coreUnits : structure.electiveUnits).map((unit) => (
+                  <CourseAccordion key={unit.code} unit={unit} />
+                ))}
+              </List>
+            </Container>
+          </Grid>
+
+          <Divider sx={{ marginY: 4, width: '100%' }} />
+
+          {/* Delivery Mode & Assessment Section */}
+          <Grid size={{ xs: 12, md: 6 }}>
+
+            <Typography variant="h4" fontWeight="bold" sx={{ mb: 2 }}>
+              Delivery Mode
+            </Typography>
+            <List>
+
+              <ListItem>
+                <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+                  <Circle sx={{ color: "accent.main", fontSize: 30 }} />
+                  <Typography variant="body1">Training is conducted at the student’s workplace or at Broadband Connect’s training facility.</Typography>
+                </Box>
+              </ListItem>
+              <ListItem>
+                <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+                  <Circle sx={{ color: "accent.main", fontSize: 30 }} />
+                  <Typography variant="body1">Provides hands-on, real-world experience with industry-relevant tasks.</Typography>
+                </Box>
+              </ListItem>
+            </List>
+          </Grid>
+          <Grid size={{ xs: 12, md: 6 }}>
+            <Typography variant="h4" fontWeight="bold" sx={{ mb: 2 }}>
+              Assessment Methods
+            </Typography>
+
+            <List>
+              <ListItem>
+                <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+                  <Circle sx={{ color: "accent.main", fontSize: 30 }} />
+                  <Typography variant="body1">Competency-based assessment ensures job readiness.</Typography>
+                </Box>
+              </ListItem>
+              <ListItem>
+                <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+                  <Circle sx={{ color: "accent.main", fontSize: 30 }} />
+                  <Typography variant="body1">Includes practical tasks, projects, and hands-on exercises.</Typography>
+                </Box>
+              </ListItem>
+              <ListItem>
+                <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+                  <Circle sx={{ color: "accent.main", fontSize: 30 }} />
+                  <Typography variant="body1">Assessments align with real-world telecommunications challenges.</Typography>
+                </Box>
+              </ListItem>
+            </List>
+          </Grid>
+
+          {/* Add CTA Section */}
+          <CTA />
+
+        </Grid>
       </Container>
     </Grid >
   );

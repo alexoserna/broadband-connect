@@ -1,5 +1,6 @@
 import { Box, Card, Typography, CardContent, CardActions, Button, Container, alpha } from "@mui/material";
 import Grid from '@mui/material/Grid2';
+import { useTheme } from "@mui/material/styles";
 
 const comingSoonCourses = [
     {
@@ -32,15 +33,18 @@ const comingSoonCourses = [
 
 
 const ComingSoonSection = () => {
+
+    const theme = useTheme();
+    
     return (
-        <Container sx={{ py: 2 , color: "#6e5f50"}}>
+        <Container sx={{ py: 2 , color: theme.palette.text.muted}}>
             <Typography variant="h4" gutterBottom>
                 Coming Soon
             </Typography>
             <Typography
                 variant="body2"
                 sx={{
-                    color: "#6e5f50", // Muted brown
+                    color: theme.palette.text.muted, // Muted brown
                     marginTop: "0.5rem",
                     marginBottom: '1rem',
                 }}
@@ -53,7 +57,7 @@ const ComingSoonSection = () => {
                         <Card
                             sx={{
                                 boxShadow: 'none',
-                                color: '#6e5f50',
+                                color: theme.palette.text.muted,
                                 padding: '1rem',
                                 borderRadius: '8px',
                                 backgroundColor: '#f6f0eb',

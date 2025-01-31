@@ -9,27 +9,27 @@ import {
   Button,
   Card,
   CardContent,
-  Accordion,
-  AccordionSummary,
-  AccordionDetails,
   Container,
   List,
   ListItem,
   ListItemText,
-  ListItemIcon,
   Tabs,
   Tab,
   SvgIcon,
-  Divider,
+  Divider
 } from '@mui/material';
-import { padding, styled } from '@mui/system';
 import { alpha, useTheme } from '@mui/material/styles';
-import { AccessTime, AttachMoney, Tag, CheckCircle, Book, AssignmentOutlined } from '@mui/icons-material';
+import { AccessTime, AttachMoney, Tag, CheckCircle, Book, AssignmentOutlined, Work, School, Circle } from '@mui/icons-material';
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import Grid from '@mui/material/Grid2';
+import CourseAccordion from "../components/CourseAccordion.jsx";
+import { styled } from "@mui/material/styles";
+import AssetRenderer from "../components/assetRenderer.jsx";
+import CTA from "../components/CTA.jsx";
+
+import { motion } from 'framer-motion';
 
 const CoursePage = () => {
-
-  console.log('in course page');
 
   const hexToRgba = (hex, alpha) => {
     // Remove the '#' if present
@@ -45,44 +45,41 @@ const CoursePage = () => {
   const theme = useTheme();
 
   const [tabValue, setTabValue] = useState(0);
+  const [expanded, setExpanded] = useState(null);
+
+  const handleExpand = (panel) => setExpanded(expanded === panel ? null : panel);
 
   const handleTabChange = (event, newValue) => {
     setTabValue(newValue);
   };
 
+  // getting to the page and querying information
   const { slug: slug } = useParams();
   const { loading, error, data } = useQuery(QUERY_COURSE_BY_SLUG, { variables: { slug }, fetchPolicy: "network-only" });
   if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error.message} <br /> Data: {JSON.stringify(data, null, 2)} <br /> In course post{slug}</p>;
+  if (error) return <p>Error: {error.message} <br />
+    Data: {JSON.stringify(data, null, 2)} <br />
+    In certification page {slug}</p>;
 
   const course = data.getCourseBySlug;
-
-  const CourseCard = styled(Card)(({ theme }) => ({
-    display: 'flex',
-    justifyContent: 'center',
-    borderRadius: '16px',
-    boxShadow: 'none',
-    transition: 'all 0.3s ease-in-out',
-    padding: '25px',
-    height: { xs: '150px', md: '170px' },
-    backgroundColor: theme.palette.secondary.light,
-  }));
-
 
   const {
     title,
     description,
-    category,
+    tagline,
     cost,
-    duration,
-    qualificationDescription,
-    careerOutcomes,
     coreUnits,
     learningOutcomes,
-    deliveryMode,
-    assessmentMethods,
-    skillTree,
+    images,
+    nbnSkills
+    // deliveryMode,
+    // assessmentMethods,
+    // skillTree,
   } = course;
+
+  console.log(coreUnits);
+
+
 
   return (
     <Grid container spacing={2}>
@@ -94,47 +91,13 @@ const CoursePage = () => {
           background: 'linear-gradient(135deg, #C0392B, #D4A017)',
           paddingBlock: '5rem',
           overflow: 'hidden',
-          width: '100vw',
+          width: '100%',
           display: 'flex',
           flexDirection: { xs: "column", md: "row" },
           alignItems: 'center',
           color: '#fff',
           position: 'relative',
         }}>
-        {/* text section */}
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: { xs: "center", md: "flex-start" },
-            textAlign: { xs: "center", md: "left" },
-            padding: "2rem",
-            height: { xs: '82vh', md: '40vh' },
-            zIndex: 1,
-          }}
-        >
-          <Typography variant="h2" fontWeight="bold" sx={{ letterSpacing: "2px" }} gutterBottom>
-            {title}
-          </Typography>
-          <Typography variant="h5" sx={{ my: 3 }}>
-            Gain industry-leading skills for a thriving career in telecommunications.
-          </Typography>
-          <Button
-            variant="contained"
-            size="large"
-            sx={{
-              mt: 4,
-              px: 4,
-              py: 2,
-              backgroundColor: "#D4A017",
-              ":hover": { backgroundColor: "#B68C0B" },
-              boxShadow: "0 4px 10px rgba(0, 0, 0, 0.2)",
-            }}
-          >
-            Enroll Now
-          </Button>
-        </Box>
 
         {/* Background Icon */}
         <Box
@@ -169,6 +132,42 @@ const CoursePage = () => {
           </SvgIcon>
 
         </Box>
+        {/* text section */}
+        <Container>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: { xs: "center", md: "flex-start" },
+              textAlign: { xs: "center", md: "left" },
+              padding: "2rem",
+              height: { xs: '82vh', md: '40vh' },
+              zIndex: 1,
+            }}
+          >
+            <Typography variant="h2" fontWeight="bold" sx={{ letterSpacing: "2px" }} gutterBottom>
+              {title}
+            </Typography>
+            <Typography variant="h5" sx={{ my: 3 }}>
+              {tagline}
+            </Typography>
+            <Button
+              variant="contained"
+              size="large"
+              sx={{
+                mt: 4,
+                px: 4,
+                py: 2,
+                backgroundColor: "#D4A017",
+                ":hover": { backgroundColor: "#B68C0B" },
+                boxShadow: "0 4px 10px rgba(0, 0, 0, 0.2)",
+              }}
+            >
+              Enroll Now
+            </Button>
+          </Box>
+        </Container>
 
       </Box>
 
@@ -177,180 +176,185 @@ const CoursePage = () => {
         <Container
           sx={{
             position: 'relative',
-            top: { xs: '-135px', md: '-50%' },
+            top: { xs: '0px', md: '-60%' },
             zIndex: 5,
           }}>
-          <CourseCard>
-            <Grid container spacing={3}>
-
-              {/* Category */}
-              <Grid size={{ xs: 12, md: 3 }}
-                sx={{
-                  display: 'flex',
-                }}>
-
-                <Tag sx={{ fontSize: { xs: '40px', md: '48px' }, color: "accent.main" }} />
-
-                <Box
-                  sx={{
-                    minWidth: '50%',
-                    width: { xs: '152px', md: '160px' },
-                    marginLeft: { xs: '4px', md: '16px' },
-                  }}>
-                  <CardContent>
-                    <Typography variant="h5" fontWeight="bold" align="left">
-                      Category
-                    </Typography>
-                    <Typography>{category}</Typography>
-                  </CardContent>
-                </Box>
-              </Grid>
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'center',
+              borderRadius: '16px',
+              boxShadow: 'none',
+              transition: 'all 0.3s ease-in-out',
+              padding: { xs: '16px', md: '25px' },
+              height: 'auto',
+              mx: 'auto',
+              width: 'fit-content',
+              backgroundColor: theme.palette.secondary.light,
+            }}>
+            <Grid container spacing={{ xs: 0, md: 3 }}>
 
               {/* Structure */}
-              <Grid size={{ xs: 12, md: 3 }}
+              <Grid size={{ xs: 6, md: 6 }}
                 sx={{
                   display: 'flex'
                 }}>
 
-                <AssignmentOutlined sx={{ fontSize: { xs: '40px', md: '48px' }, color: "accent.main" }} />
+                <AssignmentOutlined sx={{ fontSize: { xs: '30px', md: '48px' }, color: "accent.main" }} />
 
                 <Box
                   sx={{
-                    minWidth: '50%',
-                    width: { xs: '152px', md: '160px' },
                     marginLeft: { xs: '4px', md: '16px' },
                   }}>
+
+                  <Typography variant="h5" fontWeight="bold" align="left">
+                    Modules
+                  </Typography>
+                  <Typography align="left">Total: {coreUnits.length}</Typography>
+
                 </Box>
               </Grid>
 
               {/* Cost */}
-              <Grid size={{ xs: 12, md: 3 }}
+              <Grid size={{ xs: 6, md: 6 }}
                 sx={{
                   display: 'flex'
                 }}>
 
-                <AttachMoney sx={{ fontSize: { xs: '40px', md: '48px' }, color: "accent.main" }} />
+                <AttachMoney sx={{ fontSize: { xs: '30px', md: '48px' }, color: "accent.main" }} />
 
                 <Box
                   sx={{
-                    minWidth: '50%',
-                    width: { xs: '152px', md: '160px' },
                     marginLeft: { xs: '4px', md: '16px' },
                   }}>
-                  <CardContent>
-                    <Typography variant="h5" fontWeight="bold" align="left">
-                      Cost
-                    </Typography>
-                    <Typography align="left">Total: ${cost.total}</Typography>
-                    <Typography align="left">Per Module: ${cost.perModule}</Typography>
-                  </CardContent>
+
+                  <Typography variant="h5" fontWeight="bold" align="left">
+                    Cost
+                  </Typography>
+                  <Typography align="left">Total: ${cost}</Typography>
+
                 </Box>
               </Grid>
 
-              {/* Duration */}
-              <Grid size={{ xs: 12, md: 3 }}
-                sx={{
-                  display: 'flex'
-                }}>
-
-                <AccessTime sx={{ fontSize: { xs: '40px', md: '48px' }, color: "accent.main" }} />
-
-              </Grid>
-
             </Grid>
-          </CourseCard>
+          </Box>
         </Container>
       </Grid>
 
       {/* Qualification Description */}
-      <Container sx={{ my: 6 }}>
-        <Typography variant="h4" fontWeight="bold" sx={{ mb: 4 }}>
-          Qualification Description
-        </Typography>
-        <Typography>{qualificationDescription}</Typography>
-      </Container>
+      <Container sx={{ my: { xs: 3, md: 3 } }}>
+        <Grid container spacing={4} >
 
-      {/* Career Outcomes */}
-      <Container sx={{ my: 6 }}>
-        <Typography variant="h4" fontWeight="bold" sx={{ mb: 4 }}>
-          Career Outcomes
-        </Typography>
-        
-      </Container>
+          <Grid size={{ xs: 12, md: 6 }} sx={{ padding: '16px', display: 'flex' }}>
+            <Box sx={{ maxWidth: "800px", margin: "auto", alignItems: 'center' }}>
+              <Typography variant="h4" fontWeight="bold" sx={{ mb: 2 }}>
+                Course Overview
+              </Typography>
+              <Typography variant="body1">{description}</Typography>
+            </Box>
+          </Grid>
+          <Grid size={{ xs: 12, md: 6 }} sx={{ padding: '16px' }}>
+            <Box sx={{ height: "300px", backgroundColor: "#ddd", display: "flex", alignItems: "center", justifyContent: "center", borderRadius: '16px', overflow: 'hidden' }} >
+              <AssetRenderer type={'image'} assetName={'hero'} style={{ height: '300px', width: '100%', objectFit: 'cover' }} />
+            </Box>
 
-      {/* Course Structure Section */}
-      <Container sx={{ my: 6 }}>
-        <Typography variant="h4" fontWeight="bold" sx={{ mb: 4, textAlign: "center" }}>
-          Course Structure
-        </Typography>
-        <Tabs
-          value={tabValue}
-          onChange={handleTabChange}
-          textColor="primary"
-          indicatorColor="primary"
-          centered
-          sx={{
-            "& .MuiTab-root": {
-              textTransform: "none",
-              fontSize: "16px",
-              fontWeight: "bold",
-            },
-          }}
-        >
-          <Tab label="Core Units" icon={<CheckCircle />} />
-          <Tab label="Elective Units" icon={<Book />} />
-        </Tabs>
-          <List sx={{ mt: 4 }}>
-            {coreUnits.map((unit) => (
-              <ListItem key={unit.code} sx={{ py: 2 }}>
-                <ListItemIcon>
-                  <CheckCircle sx={{ color: "primary.main" }} />
-                </ListItemIcon>
-                <Box>
-                  <Typography sx={{ color: 'text.primary' }}>{unit.code}</Typography>
-                  <Typography variant="body1" sx={{ color: alpha(theme.palette.text.primary, 0.8) }}>{unit.title}</Typography>
+          </Grid>
+
+          <Divider sx={{ marginY: 4, width: '100%' }} />
+
+          {/* Learning Outcomes Section */}
+          <Grid size={{ xs: 12, md: 6 }}>
+            <Box sx={{ maxWidth: "900px", margin: "auto" }}>
+              <Typography variant="h4" fontWeight="bold" sx={{ mb: 2, textAlign: "center" }}>
+                Skills You Will Gain
+              </Typography>
+              <Grid container spacing={2} sx={{ padding: '16px' }}>
+                {learningOutcomes.map((outcome, index) => (
+                  <Grid size={{ xs: 12, md: 6 }} key={index}>
+                    <Box sx={{ display: "flex", alignItems: "center", textAlign: 'left', gap: 2 }}>
+                      <CheckCircleIcon sx={{ color: "accent.main", fontSize: 30 }} />
+                      <Typography variant="body1">{outcome}</Typography>
+                    </Box>
+                  </Grid>
+                ))}
+              </Grid>
+            </Box>
+          </Grid>
+
+          {/* Course Structure Section */}
+          <Grid size={{ xs: 12, md: 6 }}>
+            <Container sx={{ my: { xs: 3, md: 0 } }}>
+              <Typography variant="h4" fontWeight="bold" sx={{ mb: 3, textAlign: "center" }}>
+                Course Modules
+              </Typography>
+
+              {/* Conditional Rendering Based on Tab Selection */}
+              <List sx={{ mt: 1 }}>
+                {coreUnits.map((unit) => (
+                  <CourseAccordion key={unit.code} unit={unit} />
+                ))}
+              </List>
+            </Container>
+          </Grid>
+
+          <Divider sx={{ marginY: 4, width: '100%' }} />
+
+          {/* Delivery Mode & Assessment Section */}
+          <Grid size={{ xs: 12, md: 6 }}>
+
+            <Typography variant="h4" fontWeight="bold" sx={{ mb: 2 }}>
+              Delivery Mode
+            </Typography>
+            <List>
+
+              <ListItem>
+                <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+                  <Circle sx={{ color: "accent.main", fontSize: 30 }} />
+                  <Typography variant="body1">Training is conducted at the student’s workplace or at Broadband Connect’s training facility.</Typography>
                 </Box>
               </ListItem>
-            ))}
-          </List>
-        
-      </Container>
+              <ListItem>
+                <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+                  <Circle sx={{ color: "accent.main", fontSize: 30 }} />
+                  <Typography variant="body1">Provides hands-on, real-world experience with industry-relevant tasks.</Typography>
+                </Box>
+              </ListItem>
+            </List>
+          </Grid>
+          <Grid size={{ xs: 12, md: 6 }}>
+            <Typography variant="h4" fontWeight="bold" sx={{ mb: 2 }}>
+              Assessment Methods
+            </Typography>
 
-      {/* Learning Outcomes Section */}
-      <Container sx={{ my: 6 }}>
-        <Typography variant="h4" fontWeight="bold" sx={{ mb: 4, textAlign: "center" }}>
-          Learning Outcomes
-        </Typography>
-        <Grid container spacing={4}>
-          {learningOutcomes.map((outcome, index) => (
-            <Grid size={{ xs: 12, md: 6 }} key={index}>
-              <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-                <CheckCircle sx={{ color: "accent.main", fontSize: 30 }} />
-                <Typography variant="body1">{outcome}</Typography>
-              </Box>
-            </Grid>
-          ))}
+            <List>
+              <ListItem>
+                <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+                  <Circle sx={{ color: "accent.main", fontSize: 30 }} />
+                  <Typography variant="body1">Competency-based assessment ensures job readiness.</Typography>
+                </Box>
+              </ListItem>
+              <ListItem>
+                <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+                  <Circle sx={{ color: "accent.main", fontSize: 30 }} />
+                  <Typography variant="body1">Includes practical tasks, projects, and hands-on exercises.</Typography>
+                </Box>
+              </ListItem>
+              <ListItem>
+                <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+                  <Circle sx={{ color: "accent.main", fontSize: 30 }} />
+                  <Typography variant="body1">Assessments align with real-world telecommunications challenges.</Typography>
+                </Box>
+              </ListItem>
+            </List>
+          </Grid>
+
+          {/* Add CTA Section */}
+          <CTA />
+
         </Grid>
-      </Container>
-
-      {/* Delivery Mode & Assessment Section */}
-      <Container sx={{ my: 6 }}>
-        <Typography variant="h4" fontWeight="bold" sx={{ mb: 4 }}>
-          Delivery Mode & Assessment
-        </Typography>
-        <Typography variant="h5" fontWeight="bold" sx={{ mt: 2 }}>
-          Delivery Mode
-        </Typography>
-        <Typography>{deliveryMode}</Typography>
-        <Typography variant="h5" fontWeight="bold" sx={{ mt: 4 }}>
-          Assessment Methods
-        </Typography>
-        <List>
-          
-        </List>
       </Container>
     </Grid >
   );
-};
+}
 
 export default CoursePage;
