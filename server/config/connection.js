@@ -9,6 +9,10 @@ const dbUri = isLocal
   ? process.env.MONGODB_LOCAL_URI || "mongodb://127.0.0.1:27017/broadbandconnect"
   : process.env.MONGODB_URI;
 
+console.log('local uri: ', process.env.MONGODB_LOCAL_URI);
+console.log('mongodb uri: ', process.env.MONGODB_URI);
+console.log('dburi: ', dbUri);
+
 console.log(`Seeding to ${isLocal ? "Local" : "Atlas"} Database...`);
 console.log("Connecting to MongoDB with URI:", dbUri);
 
