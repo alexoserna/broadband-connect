@@ -9,14 +9,10 @@ import { GlobalStyles } from '@mui/material';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { LoadingProvider } from "./context/LoadingContext";
-import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
-
-const httpLink = createHttpLink({
-  uri: '/graphql',
-})
+import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 
 const client = new ApolloClient({
-  link: httpLink,
+  uri: import.meta.env.VITE_API_URL || 'http://localhost:3001/graphql', // Replace with your server's GraphQL endpoint
   cache: new InMemoryCache(),          // Apollo's caching mechanism
 });
 
