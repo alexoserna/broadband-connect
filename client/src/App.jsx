@@ -14,9 +14,6 @@ import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import './App.css';
 
-import { setContext } from '@apollo/client/link/context';
-import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from "@apollo/client";
-
 import { useLoading } from "./context/LoadingContext";
 import LoadingSpinner from "./components/LoadingSpinner";
 
